@@ -286,7 +286,7 @@
             <div class="brand-card br-orange" onclick="openModal('Digər')"><i class="fa-solid fa-ellipsis brand-icon"></i><h3>Digər</h3></div>
         </div>
 
-        <!-- MƏLUMAT BÖLMƏSİ (YENİ SƏNİN İSTƏDİYİN TEXTLƏR) -->
+        <!-- MƏLUMAT BÖLMƏSİ (16 ILLIK TECRÜBE) -->
         <div class="info-section">
             <h3 class="info-title">Xidmətlərimiz və Üstünlüklərimiz</h3>
             <div class="info-grid">
@@ -332,7 +332,7 @@
         <div class="bottom-widgets">
             
             <div class="widget-card">
-                <div class="widget-title">Əvvəl/Sonra: Arzuman ustanın işləri</div>
+                <div class="widget-title">Əvvəl/Sonra: Slayder</div>
                 
                 <div class="slider-wrapper">
                     <span class="slider-label" style="left: 12px;">Əvvəl</span>
@@ -345,7 +345,7 @@
                 </div>
 
                 <div class="rating-box">
-                    <span>Arzuman ustanın işini qiymətləndirin</span>
+                    <span>Arzuman ustanın işini qiymətlendirn</span>
                     <div class="stars">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
@@ -364,7 +364,6 @@
                         <img id="userPhotoPreview" src="" alt="Sizin Şəkil">
                     </div>
 
-                    <!-- YƏNİ: "USTAYA GÖNDƏR" -> "SERVISƏ GÖNDƏR" olaraq dəyişdirildi -->
                     <button class="btn-cyber-upload" onclick="sendPhotoToWhatsApp()">SERVISƏ GÖNDƏR</button>
                     <div class="upload-footer-text">Fara Şəklinizi Bizə Göndərin</div>
                 </div>
@@ -399,17 +398,16 @@
     </a>
 
     <script>
-        // BURA ÖZ ŞƏKİLLƏRİNİZİN LİNKLƏRİNİ YAZIN (Fara və stop üçün istədiyiniz sayda şəkil qoya bilərsiniz)
+        // =========================================================================
+        // 🛠️ BURA ÖZ ŞƏKİLLƏRİNİZİN LİNKLƏRİNİ YAZIN (MÜTLƏQ DIRECT LINK OLMALIDIR) 🛠️
+        // =========================================================================
         const photoData = {
             'Mercedes-Benz': {
                 fara: [
                     { 
-                        before: https://i.ibb.co/dw3xzxzL/63c4d2c2-972c-42d2-9d08-a4cff70fb1eb.jpg
-                        after: https://i.ibb.co/dw3xzxzL/63c4d2c2-972c-42d2-9d08-a4cff70fb1eb.jpg 
-                    },
-                    { 
-                        before: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?q=80&w=600&auto=format&fit=crop', 
-                        after: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=600&auto=format&fit=crop' 
+                        // Sənin yenicə göndərdiyin real əl işinin "Əvvəl" şəkli bura tam düzgün formatda yerləşdirildi!
+                        before: 'https://i.ibb.co/dw3xzxzL/63c4d2c2-972c-42d2-9d08-a4cff70fb1eb.jpg', 
+                        after: 'https://i.ibb.co/kft2B4T/57cd5a27-93c3-462b-80ed-04135bed5289.jpg' 
                     }
                 ],
                 stop: [
@@ -420,14 +418,17 @@
                 ]
             },
             'BMW': {
-                fara: [{ before: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=400', after: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=400' }],
+                fara: [],
+                stop: []
+            },
+            'Audi': {
+                fara: [],
                 stop: []
             },
             'Bentley': {
                 fara: [],
                 stop: []
             }
-            // Digər markalar üçün də eyni şəkildə fara: [], stop: [] strukturu ilə şəkillər əlavə edə bilərsiniz
         };
 
         let currentBrand = '';
@@ -447,6 +448,7 @@
             if (event.target === document.getElementById('galleryModal')) { closeModal(); }
         }
 
+        // Qalereya yükləmə sistemi (şəkillərin ölçüsü və yerləşməsi tam optimallaşdırılıb)
         function loadGallery(type) {
             document.getElementById('tabFara').className = (type === 'fara') ? 'tab-btn active-fara' : 'tab-btn';
             document.getElementById('tabStop').className = (type === 'stop') ? 'tab-btn active-stop' : 'tab-btn';
@@ -457,7 +459,6 @@
             const brandPhotos = photoData[currentBrand] && photoData[currentBrand][type] ? photoData[currentBrand][type] : [];
 
             if (brandPhotos.length === 0) {
-                // Şəkil olmayanda çıxacaq gözəl neon xəbərdarlıq
                 grid.innerHTML = `<div class="empty-text">⚠️ Bu markanın ${type.toUpperCase()} bölməsi üçün hələlik şəkil əlavə edilməyib. Usta tərəfindən tezliklə yüklənəcək!</div>`;
             } else {
                 brandPhotos.forEach(photo => {
