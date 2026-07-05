@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fara Servis Arzuman | Peşəkar Optika Bərpası</title>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
@@ -27,36 +28,26 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
 
         body {
-            background: linear-gradient(rgba(6, 9, 19, 0.85), rgba(6, 9, 19, 0.95)), 
-                        url('https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=1920&auto=format&fit=crop') no-repeat center center fixed;
+            /* DÜZƏLİŞ BURA EDİLDİ: Şəkil açılmasa belə qara fon mütləq gələcək */
+            background-color: var(--bg-dark);
+            background-image: linear-gradient(rgba(6, 9, 19, 0.85), rgba(6, 9, 19, 0.95)), url('https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=1920&auto=format&fit=crop');
             background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             color: #f1f5f9;
             min-height: 100vh;
             overflow-x: hidden;
             padding-bottom: 100px;
         }
 
-        header {
-            text-align: center;
-            padding: 40px 20px 20px;
-        }
+        header { text-align: center; padding: 40px 20px 20px; }
         header h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2.8rem;
-            color: var(--primary-orange);
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            text-shadow: 0 0 20px rgba(255, 85, 0, 0.6);
+            font-family: 'Orbitron', sans-serif; font-size: 2.8rem; color: var(--primary-orange);
+            font-weight: 900; text-transform: uppercase; letter-spacing: 4px; text-shadow: 0 0 20px rgba(255, 85, 0, 0.6);
         }
         .slogan {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.1rem;
-            color: var(--cyber-cyan);
-            margin-top: 5px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+            font-family: 'Orbitron', sans-serif; font-size: 1.1rem; color: var(--cyber-cyan);
+            margin-top: 5px; font-weight: 700; letter-spacing: 2px; text-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
         }
 
         .container { max-width: 1300px; margin: 0 auto; padding: 10px 20px; }
@@ -103,9 +94,7 @@
         }
         
         /* FARA / STOP SEÇİM DÜYMƏLƏRİ */
-        .category-switcher {
-            display: flex; justify-content: center; gap: 20px; margin: 25px 0 15px 0;
-        }
+        .category-switcher { display: flex; justify-content: center; gap: 20px; margin: 25px 0 15px 0; }
         .btn-cat {
             background: rgba(15, 23, 42, 0.8); border: 2px solid rgba(255,255,255,0.1);
             color: #fff; padding: 12px 40px; border-radius: 8px; font-family: 'Orbitron', sans-serif;
@@ -113,7 +102,6 @@
             display: flex; align-items: center; gap: 10px;
         }
         .btn-cat:hover { border-color: #fff; }
-        
         .btn-cat.active-fara {
             border-color: var(--cyber-cyan); color: var(--cyber-cyan);
             box-shadow: 0 0 15px rgba(0, 255, 255, 0.4); background: rgba(0, 255, 255, 0.05);
@@ -123,12 +111,8 @@
             box-shadow: 0 0 15px rgba(255, 85, 0, 0.4); background: rgba(255, 85, 0, 0.05);
         }
 
-        .dynamic-grid {
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin-top: 20px;
-        }
-        .work-box {
-            background: rgba(6, 9, 19, 0.6); border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05);
-        }
+        .dynamic-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin-top: 20px; }
+        .work-box { background: rgba(6, 9, 19, 0.6); border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); }
         .work-images { display: flex; height: 180px; position: relative; }
         .work-images img { width: 50%; height: 100%; object-fit: cover; }
         .work-images .b-img { border-right: 2px solid var(--primary-orange); }
@@ -189,7 +173,6 @@
         .bottom-contact-bar span { color: #fff; font-weight: 600; font-family: 'Orbitron', sans-serif; }
         .bottom-contact-bar i { color: #25d366; font-size: 1.6rem; }
         
-        /* Kiber Xəbərdarlıq Qutusu */
         .empty-alert {
             grid-column: 1/-1; text-align: center; color: #ff5500; padding: 30px; 
             border: 1px dashed rgba(255, 85, 0, 0.3); border-radius: 10px; background: rgba(255, 85, 0, 0.02);
@@ -254,12 +237,11 @@
             </div>
             
             <div class="category-switcher">
-                <button id="btnFara" class="btn-cat" onclick="switchCategory('fara')"><i class="fa-solid fa-lightbulb"></i> FARA</button>
+                <button id="btnFara" class="btn-cat active-fara" onclick="switchCategory('fara')"><i class="fa-solid fa-lightbulb"></i> FARA</button>
                 <button id="btnStop" class="btn-cat" onclick="switchCategory('stop')"><i class="fa-solid fa-circle"></i> STOP</button>
             </div>
 
-            <div class="dynamic-grid" id="galleryGrid">
-                </div>
+            <div class="dynamic-grid" id="galleryGrid"></div>
         </div>
 
         <div class="bottom-widgets">
@@ -291,7 +273,7 @@
                     </div>
                     
                     <button class="btn-cyber-upload" onclick="sendPhotoToWhatsApp()">YÜKLƏ</button>
-                    <div class="upload-footer-text" style="margin-top: 15px; font-size: 0.85rem; color: var(--text-gray);">Fara Şəklinizi Bizə Göndərin</div>
+                    <div style="margin-top: 15px; font-size: 0.85rem; color: var(--text-gray);">Fara Şəklinizi Bizə Göndərin</div>
                 </div>
             </div>
         </div>
@@ -306,120 +288,7 @@
         let currentSelectedBrand = '';
         let currentSelectedCategory = 'fara';
 
-        // FARA VƏ STOP ŞƏKİLLƏRİNİN MƏLUMAT BAZASI
         const brandData = {
             'Mercedes-Benz': {
                 fara: [
-                    { title: 'Mercedes W212 Ön Fara', desc: 'Saralmış şüşələrin və daxili linzaların restavrasiyası', before: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=400', after: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=400' }
-                ],
-                stop: [
-                    { title: 'Mercedes C-Class Arxa Stop', desc: 'Cızıqların aradan qaldırılması və laklanma', before: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=400', after: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=400' }
-                ]
-            },
-            'BMW': {
-                fara: [
-                    { title: 'BMW F30 Bi-LED Optika', desc: 'Zavod lupaları sökülərək yeni parlaq LED quraşdırıldı', before: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=400', after: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=400' }
-                ],
-                stop: []
-            },
-            'Audi': { fara: [], stop: [] }, 'Opel': { fara: [], stop: [] }, 'Toyota': { fara: [], stop: [] },
-            'Hyundai': { fara: [], stop: [] }, 'Kia': { fara: [], stop: [] }, 'Chevrolet': { fara: [], stop: [] },
-            'Ford': { fara: [], stop: [] }, 'Nissan': { fara: [], stop: [] }, 'Volkswagen': { fara: [], stop: [] },
-            'Lada': { fara: [], stop: [] }, 'Honda': { fara: [], stop: [] }, 'Porsche': { fara: [], stop: [] },
-            'Lexus': { fara: [], stop: [] }, 'Land Rover': { fara: [], stop: [] }, 'Mazda': { fara: [], stop: [] },
-            'Mitsubishi': { fara: [], stop: [] }, 'Renault': { fara: [], stop: [] }, 'Peugeot': { fara: [], stop: [] },
-            'Subaru': { fara: [], stop: [] }, 'Suzuki': { fara: [], stop: [] }, 'Volvo': { fara: [], stop: [] },
-            'Jeep': { fara: [], stop: [] }, 'Fiat': { fara: [], stop: [] }, 'Infiniti': { fara: [], stop: [] },
-            'Jaguar': { fara: [], stop: [] }, 'Cadillac': { fara: [], stop: [] }, 'Khazar': { fara: [], stop: [] },
-            'Digər': { fara: [], stop: [] }
-        };
-
-        function selectBrand(brandName) {
-            currentSelectedBrand = brandName;
-            document.getElementById('gallerySection').style.display = 'block';
-            document.getElementById('galleryTitle').innerText = `${brandName.toUpperCase()} - GÖRÜLƏN İŞLƏR`;
-            switchCategory('fara');
-            document.getElementById('gallerySection').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function switchCategory(category) {
-            currentSelectedCategory = category;
-            const btnFara = document.getElementById('btnFara');
-            const btnStop = document.getElementById('btnStop');
-            const grid = document.getElementById('galleryGrid');
-            
-            if (category === 'fara') {
-                btnFara.className = 'btn-cat active-fara';
-                btnStop.className = 'btn-cat';
-            } else {
-                btnFara.className = 'btn-cat';
-                btnStop.className = 'btn-cat active-stop';
-            }
-            
-            grid.innerHTML = '';
-            const brandWorks = brandData[currentSelectedBrand];
-            const works = (brandWorks && brandWorks[category]) ? brandWorks[category] : [];
-            
-            if (works.length === 0) {
-                grid.innerHTML = `<div class="empty-alert">⚠️ Bu markanın ${category.toUpperCase()} bölməsinə hələ şəkil qoyulmayıb. Bir azdan ustanız əlavə edəcək!</div>`;
-            } else {
-                works.forEach(work => {
-                    grid.innerHTML += `
-                        <div class="work-box">
-                            <div class="work-images">
-                                <img src="${work.before}" class="b-img" alt="Əvvəl">
-                                <img src="${work.after}" alt="Sonra">
-                            </div>
-                            <div class="work-info">
-                                <h4>${work.title}</h4>
-                                <p>${work.desc}</p>
-                            </div>
-                        </div>
-                    `;
-                });
-            }
-        }
-
-        function closeGallery() { document.getElementById('gallerySection').style.display = 'none'; }
-        
-        function filterCars() {
-            let input = document.getElementById('searchBar').value.toLowerCase();
-            let cards = document.getElementsByClassName('brand-card');
-            for (let i = 0; i < cards.length; i++) {
-                let brandName = cards[i].querySelector('h3').innerText.toLowerCase();
-                cards[i].style.display = brandName.includes(input) ? "flex" : "none";
-            }
-        }
-
-        function moveSlider(value) { document.getElementById('afterImg').style.width = value + '%'; }
-        
-        function triggerFileInput() { document.getElementById('userPhotoInput').click(); }
-        
-        function previewUserPhoto(input) {
-            const file = input.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const preview = document.getElementById('userPhotoPreview');
-                    preview.src = e.target.result; 
-                    preview.style.display = 'block'; 
-                    
-                    document.getElementById('uploadText').style.display = 'none';
-                    document.getElementById('uploadIcon').style.display = 'none';
-                }
-                reader.readAsDataURL(file);
-            }
-        }
-
-        function sendPhotoToWhatsApp() {
-            const fileInput = document.getElementById('userPhotoInput');
-            if(fileInput.files.length === 0) {
-                alert("Zəhmət olmasa, əvvəlcə dairəyə klikləyərək faranızın şəklini seçin!");
-            } else {
-                const message = encodeURIComponent("Salam Arzuman usta! Saytınız üzərindən faramın şəklini seçdim, indi sizə göndərirəm. Baxıb zəhmət olmasa qiymət deyərdiniz.");
-                window.open(`https://wa.me/994556057891?text=${message}`, '_blank');
-            }
-        }
-    </script>
-</body>
-</html>
+                    { title: 'Mercedes W212 Ön Fara', desc: 'Saralmış şüşələrin və daxili linzaların restavrasiy
