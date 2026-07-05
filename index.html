@@ -6,7 +6,7 @@ HTML
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fara Servis Arzuman | Peşəkar Optika Bərpası</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght500;700;900&family=Poppins:wght300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -21,6 +21,7 @@ HTML
             --n-red: #ff3333;
             --n-yellow: #ffcc00;
             --n-white: #ffffff;
+            --n-gold: #ffd700;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
@@ -78,6 +79,7 @@ HTML
         .br-red { border: 2px solid var(--n-red); color: var(--n-red); }
         .br-yellow { border: 2px solid var(--n-yellow); color: var(--n-yellow); }
         .br-white { border: 2px solid var(--n-white); color: var(--n-white); }
+        .br-gold { border: 2px solid var(--n-gold); color: var(--n-gold); }
         .brand-card h3 { color: #fff !important; }
 
         /* BOTTOM WIDGETS */
@@ -112,31 +114,34 @@ HTML
         .bottom-contact-bar span { color: #fff; font-weight: 600; font-family: 'Orbitron', sans-serif; font-size: 0.9rem; }
         .bottom-contact-bar i { color: #25d366; font-size: 1.4rem; }
 
-        /* POPUP MODAL (YENİ SIFIRDAN YIĞILMA) */
+        /* POPUP MODAL (YENİLƏNMİŞ QALEREYA SİSTEMİ) */
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.9); display: none; align-items: center; justify-content: center; z-index: 9999; padding: 15px;
         }
         .modal-box {
             background: #0b111e; border: 2px solid var(--primary-orange); border-radius: 12px;
-            width: 100%; max-width: 650px; padding: 20px; box-shadow: 0 0 25px rgba(255, 85, 0, 0.4);
+            width: 100%; max-width: 800px; max-height: 85vh; padding: 20px; box-shadow: 0 0 25px rgba(255, 85, 0, 0.4);
+            display: flex; flex-direction: column;
         }
-        .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+        .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; flex-shrink: 0; }
         .modal-title { font-family: 'Orbitron', sans-serif; font-size: 1.2rem; color: #fff; text-transform: uppercase; }
         .close-btn { background: none; border: none; color: #ff3333; font-size: 2rem; cursor: pointer; }
         
-        .modal-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 20px; }
+        .modal-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 20px; flex-shrink: 0; }
         .tab-btn {
             background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff;
             padding: 8px 20px; border-radius: 6px; font-family: 'Orbitron', sans-serif; cursor: pointer; font-size: 0.85rem; transition: 0.2s;
         }
         .active-tab { border-color: var(--primary-orange); color: var(--primary-orange); background: rgba(255, 85, 0, 0.1); }
 
-        .modal-gallery { display: grid; grid-template-columns: 1fr; gap: 15px; }
-        .ba-card { background: rgba(255,255,255,0.03); border-radius: 8px; padding: 10px; border: 1px solid rgba(255,255,255,0.05); }
+        /* Çoxlu şəkillərin skrol olunması üçün scroll əlavə olundu */
+        .modal-body { overflow-y: auto; flex-grow: 1; padding-right: 5px; }
+        .modal-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; }
+        .ba-card { background: rgba(255,255,255,0.03); border-radius: 8px; padding: 12px; border: 1px solid rgba(255,255,255,0.05); }
         .ba-images { display: flex; gap: 10px; }
         .ba-img-box { flex: 1; text-align: center; }
-        .ba-img-box img { width: 100%; height: 160px; object-fit: cover; border-radius: 6px; margin-bottom: 5px; border: 1px solid rgba(255,255,255,0.1); }
+        .ba-img-box img { width: 100%; height: 140px; object-fit: cover; border-radius: 6px; margin-bottom: 5px; border: 1px solid rgba(255,255,255,0.1); }
         .ba-label { font-size: 0.8rem; color: #cbd5e1; font-weight: 600; text-transform: uppercase; }
     </style>
 </head>
@@ -158,6 +163,8 @@ HTML
         </div>
 
         <div class="brand-grid" id="brandGrid">
+            <div class="brand-card br-gold" onclick="openModal('Bentley')"><i class="fa-solid fa-gem brand-icon"></i><h3>Bentley</h3></div>
+            
             <div class="brand-card br-blue" onclick="openModal('Mercedes')"><i class="fa-solid fa-car-side brand-icon"></i><h3>Mercedes</h3></div>
             <div class="brand-card br-white" onclick="openModal('BMW')"><i class="fa-solid fa-car brand-icon"></i><h3>BMW</h3></div>
             <div class="brand-card br-red" onclick="openModal('Audi')"><i class="fa-solid fa-circle-nodes brand-icon"></i><h3>Audi</h3></div>
@@ -216,8 +223,10 @@ HTML
                 <button class="tab-btn active-tab" id="tabFara" onclick="loadGallery('fara')">FARA BƏRPASI</button>
                 <button class="tab-btn" id="tabStop" onclick="loadGallery('stop')">STOP BƏRPASI</button>
             </div>
-            <div class="modal-gallery" id="modalGalleryGrid">
-                </div>
+            <div class="modal-body">
+                <div class="modal-gallery" id="modalGalleryGrid">
+                    </div>
+            </div>
         </div>
     </div>
 
@@ -264,8 +273,40 @@ HTML
             }
         }
 
-        /* MODAL CODES */
+        /* ----- ŞƏKİL QALEREYASI SİSTEMİ ----- */
         let currentBrand = '';
+        let currentType = 'fara';
+
+        // BURA İSTƏDİYİN QƏDƏR ŞƏKİL LINKİ ƏLAVƏ EDƏ BİLƏRSƏN (10-DAN ÇOX DA OLA BİLƏR)
+        // Hər obyekt bir "Əvvəl" və "Sonra" cütlüyüdür.
+        const galleryData = {
+            fara: [
+                { before: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=500', after: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=500' },
+                { before: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=500', after: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=500' },
+                { before: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=500', after: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=500' },
+                { before: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=500', after: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=500' },
+                { before: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=500', after: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=500' },
+                { before: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=500', after: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=500' },
+                { before: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=500', after: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=500' },
+                { before: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=500', after: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=500' },
+                { before: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=500', after: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=500' },
+                { before: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=500', after: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=500' },
+                { before: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=500', after: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=500' } // Cəmi 11 nümunə fara şəkli var, artıra bilərsən
+            ],
+            stop: [
+                { before: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=500', after: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=500' },
+                { before: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=500', after: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=500' },
+                { before: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=500', after: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=500' },
+                { before: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=500', after: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=500' },
+                { before: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=500', after: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=500' },
+                { before: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=500', after: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=500' },
+                { before: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=500', after: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=500' },
+                { before: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=500', after: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=500' },
+                { before: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=500', after: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=500' },
+                { before: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=500', after: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=500' } // Cəmi 10 nümunə stop şəkli var, artıra bilərsən
+            ]
+        };
+
         function openModal(brand) {
             currentBrand = brand;
             document.getElementById('modalTitle').innerText = brand + " - İşlərimiz";
@@ -278,6 +319,7 @@ HTML
         }
 
         function loadGallery(type) {
+            currentType = type;
             document.getElementById('tabFara').classList.remove('active-tab');
             document.getElementById('tabStop').classList.remove('active-tab');
             
@@ -288,30 +330,27 @@ HTML
             }
 
             const grid = document.getElementById('modalGalleryGrid');
-            
-            // Fərqli bölmələr üçün fərqli nümunə şəkillər çıxsın deyə linkləri ayırdım
-            let beforeSrc = type === 'fara' 
-                ? 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=500' 
-                : 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=500';
-            
-            let afterSrc = type === 'fara' 
-                ? 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=500' 
-                : 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=500';
+            grid.innerHTML = ''; // Köhnə şəkilləri təmizləyirik
 
-            grid.innerHTML = `
-                <div class="ba-card">
-                    <div class="ba-images">
-                        <div class="ba-img-box">
-                            <img src="${beforeSrc}" alt="Əvvəl">
-                            <div class="ba-label">Əvvəl</div>
-                        </div>
-                        <div class="ba-img-box">
-                            <img src="${afterSrc}" alt="Sonra">
-                            <div class="ba-label" style="color: var(--primary-orange);">Sonra</div>
+            // Seçilən bölməyə uyğun massivdəki bütün şəkilləri dövrlə ekrana çıxarırıq
+            const imagesToLoad = galleryData[type];
+            
+            imagesToLoad.forEach(item => {
+                grid.innerHTML += `
+                    <div class="ba-card">
+                        <div class="ba-images">
+                            <div class="ba-img-box">
+                                <img src="${item.before}" alt="Əvvəl">
+                                <div class="ba-label">Əvvəl</div>
+                            </div>
+                            <div class="ba-img-box">
+                                <img src="${item.after}" alt="Sonra">
+                                <div class="ba-label" style="color: var(--primary-orange);">Sonra</div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            `;
+                `;
+            });
         }
     </script>
 </body>
