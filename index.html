@@ -43,16 +43,21 @@
         .page { display: none; opacity: 0; transform: translateY(15px); transition: all 0.4s ease-in-out; }
         .page.active { display: block; opacity: 1; transform: translateY(0); }
 
-        /* Rəsmi Loqolar Üçün Grid */
+        /* Qaranlıq fona uyğunlaşdırılmış rəsmi loqo kartları */
         .brand-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 15px; margin-top: 30px; }
         .brand-card {
             background: rgba(30, 41, 59, 0.6); border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 12px; padding: 20px 10px; text-align: center; cursor: pointer; backdrop-filter: blur(5px);
             transition: all 0.3s ease;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
         }
         .brand-card:hover { border-color: #ff5500; transform: translateY(-5px); background: rgba(30, 41, 59, 0.9); box-shadow: 0 8px 20px rgba(255, 85, 0, 0.2); }
-        .brand-card img { width: 60px; height: 60px; object-fit: contain; filter: drop-shadow(0px 0px 5px rgba(255,255,255,0.1)); }
-        .brand-card h3 { margin-top: 12px; font-size: 0.85rem; font-weight: 500; color: #fff; }
+        .brand-card img { 
+            width: 55px; height: 55px; object-fit: contain; 
+            filter: drop-shadow(0px 0px 5px rgba(255,255,255,0.3)); /* Loqolar qara fonda parlasın deyə */
+            margin-bottom: 12px;
+        }
+        .brand-card h3 { font-size: 0.85rem; font-weight: 500; color: #fff; }
 
         .choice-container { display: flex; justify-content: center; gap: 30px; margin-top: 40px; flex-wrap: wrap; }
         .choice-card {
@@ -75,11 +80,6 @@
 
         .btn-back { background: #1e293b; color: #fff; border: 1px solid #334155; padding: 10px 25px; border-radius: 30px; cursor: pointer; font-size: 0.9rem; font-weight: 500; transition: all 0.3s; }
         .btn-back:hover { background: #ff5500; border-color: #ff5500; }
-
-        .features-box { background: rgba(15, 23, 42, 0.8); padding: 40px; border-radius: 16px; margin-top: 60px; text-align: center; border: 1px solid rgba(255,255,255,0.05); }
-        .features-grid { display: flex; justify-content: center; gap: 40px; margin-top: 25px; flex-wrap: wrap; }
-        .feature { max-width: 250px; }
-        .feature i { font-size: 2.5rem; color: #ff5500; margin-bottom: 15px; }
 
         .whatsapp-float {
             position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white;
@@ -107,7 +107,32 @@
             <h2 style="font-size: 1.1rem; text-align: center; margin-bottom: 25px; color: #cbd5e1;">Avtomobilinizin markasını seçin:</h2>
             
             <div class="brand-grid">
-                <div class="brand-card" onclick="selectBrand('Mercedes-Benz')"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/mercedes_benz.png" alt="Mercedes"><h3>Mercedes</h3></div>
-                <div class="brand-card" onclick="selectBrand('BMW')"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/bmw.png" alt="BMW"><h3>BMW</h3></div>
-                <div class="brand-card" onclick="selectBrand('Audi')"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/audi.png" alt="Audi"><h3>Audi</h3></div>
-                <div class="brand-card" onclick="selectBrand('Opel')
+                <div class="brand-card" onclick="selectBrand('Mercedes-Benz')"><img src="https://www.vectorlogo.zone/logos/mercedes-benz/mercedes-benz-icon.svg" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3202/3202926.png'" alt="Mercedes"><h3>Mercedes</h3></div>
+                <div class="brand-card" onclick="selectBrand('BMW')"><img src="https://www.vectorlogo.zone/logos/bmw/bmw-icon.svg" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3202/3202926.png'" alt="BMW"><h3>BMW</h3></div>
+                <div class="brand-card" onclick="selectBrand('Audi')"><img src="https://www.vectorlogo.zone/logos/audi/audi-icon.svg" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3202/3202926.png'" alt="Audi"><h3>Audi</h3></div>
+                <div class="brand-card" onclick="selectBrand('Toyota')"><img src="https://www.vectorlogo.zone/logos/toyota/toyota-icon.svg" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3202/3202926.png'" alt="Toyota"><h3>Toyota</h3></div>
+                <div class="brand-card" onclick="selectBrand('Ford')"><img src="https://www.vectorlogo.zone/logos/ford/ford-icon.svg" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3202/3202926.png'" alt="Ford"><h3>Ford</h3></div>
+                <div class="brand-card" onclick="selectBrand('Volkswagen')"><img src="https://www.vectorlogo.zone/logos/volkswagen/volkswagen-icon.svg" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3202/3202926.png'" alt="VW"><h3>Volkswagen</h3></div>
+                <div class="brand-card" onclick="selectBrand('Honda')"><img src="https://www.vectorlogo.zone/logos/honda/honda-icon.svg" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3202/3202926.png'" alt="Honda"><h3>Honda</h3></div>
+                <div class="brand-card" onclick="selectBrand('Hyundai')"><img src="https://www.vectorlogo.zone/logos/hyundai/hyundai-icon.svg" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3202/3202926.png'" alt="Hyundai"><h3>Hyundai</h3></div>
+                <div class="brand-card" onclick="selectBrand('Kia')"><img src="https://www.vectorlogo.zone/logos/kia/kia-icon.svg" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3202/3202926.png'" alt="Kia"><h3>Kia</h3></div>
+                <div class="brand-card" onclick="selectBrand('Porsche')"><img src="https://www.vectorlogo.zone/logos/porsche/porsche-icon.svg" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3202/3202926.png'" alt="Porsche"><h3>Porsche</h3></div>
+                <div class="brand-card" onclick="selectBrand('Nissan')"><img src="https://www.vectorlogo.zone/logos/nissan/nissan-icon.svg" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3202/3202926.png'" alt="Nissan"><h3>Nissan</h3></div>
+                <div class="brand-card" onclick="selectBrand('Chevrolet')"><img src="https://www.vectorlogo.zone/logos/chevrolet/chevrolet-icon.svg" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3202/3202926.png'" alt="Chevrolet"><h3>Chevrolet</h3></div>
+                <div class="brand-card" onclick="selectBrand('Mazda')"><img src="https://www.vectorlogo.zone/logos/mazda/mazda-icon.svg" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3202/3202926.png'" alt="Mazda"><h3>Mazda</h3></div>
+                <div class="brand-card" onclick="selectBrand('Mitsubishi')"><img src="https://www.vectorlogo.zone/logos/mitsubishi/mitsubishi-icon.svg" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3202/3202926.png'" alt="Mitsubishi"><h3>Mitsubishi</h3></div>
+                <div class="brand-card" onclick="selectBrand('Renault')"><img src="https://www.vectorlogo.zone/logos/renault/renault-icon.svg" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3202/3202926.png'" alt="Renault"><h3>Renault</h3></div>
+                <div class="brand-card" onclick="selectBrand('Peugeot')"><img src="https://www.vectorlogo.zone/logos/peugeot/peugeot-icon.svg" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3202/3202926.png'" alt="Peugeot"><h3>Peugeot</h3></div>
+                <div class="brand-card" onclick="selectBrand('Volvo')"><img src="https://www.vectorlogo.zone/logos/volvo/volvo-icon.svg" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3202/3202926.png'" alt="Volvo"><h3>Volvo</h3></div>
+                <div class="brand-card" onclick="selectBrand('Fiat')"><img src="https://www.vectorlogo.zone/logos/fiat/fiat-icon.svg" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3202/3202926.png'" alt="Fiat"><h3>Fiat</h3></div>
+                <div class="brand-card" onclick="selectBrand('Opel')"><img src="https://api.companyenrich.com/logo/opel.com" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3202/3202926.png'" alt="Opel"><h3>Opel</h3></div>
+                <div class="brand-card" onclick="selectBrand('Lexus')"><img src="https://api.companyenrich.com/logo/lexus.com" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3202/3202926.png'" alt="Lexus"><h3>Lexus</h3></div>
+                <div class="brand-card" onclick="selectBrand('Jeep')"><img src="https://api.companyenrich.com/logo/jeep.com" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3202/3202926.png'" alt="Jeep"><h3>Jeep</h3></div>
+                <div class="brand-card" onclick="selectBrand('Land Rover')"><img src="https://api.companyenrich.com/logo/landrover.com" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3202/3202926.png'" alt="Land Rover"><h3>Land Rover</h3></div>
+                <div class="brand-card" onclick="selectBrand('Lada')"><img src="https://api.companyenrich.com/logo/lada.ru" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3202/3202926.png'" alt="Lada"><h3>Lada</h3></div>
+                <div class="brand-card" onclick="selectBrand('Digər')"><img src="https://cdn-icons-png.flaticon.com/512/5111/5111166.png" alt="Digər"><h3>Digər Maşınlar</h3></div>
+            </div>
+        </div>
+
+        <div id="page-services" class="page">
+            <button class="btn
