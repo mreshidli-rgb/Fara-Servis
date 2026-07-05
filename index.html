@@ -3,260 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fara Servis Arzuman | 30 Brend</title>
+    <title>Fara Servis Arzuman | Premium Optika Mərkəzi</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
 
         body {
-            /* Gecə vaxtı farası yanan maşın arxa fonu və üzərində tünd vizual filtr */
-            background: linear-gradient(rgba(10, 12, 18, 0.85), rgba(10, 12, 18, 0.92)), 
-                        url('https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=1200&auto=format&fit=crop') no-repeat center center fixed;
+            /* Tam Qaranlıq Premium Fon və İşıq effekti */
+            background: linear-gradient(rgba(12, 14, 20, 0.9), rgba(12, 14, 20, 0.95)), 
+                        url('https://images.unsplash.com/photo-1542282088-fe8426682b8f?q=80&w=1920&auto=format&fit=crop') no-repeat center center fixed;
             background-size: cover;
-            color: #e2e8f0;
+            color: #f1f5f9;
             min-height: 100vh;
         }
 
-        /* Başlıq və Yeni Slogan */
+        /* HEADER */
         header {
             text-align: center;
-            padding: 40px 20px;
-            background: rgba(20, 23, 28, 0.6);
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid rgba(255, 85, 0, 0.2);
+            padding: 45px 20px;
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid rgba(255, 85, 0, 0.4);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        header h1 {
-            font-size: 2rem;
-            color: #ff5500;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-shadow: 0 0 15px rgba(255, 85, 0, 0.4);
-        }
+        header h1 { font-size: 2.2rem; color: #ff5500; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+        .slogan { font-size: 1.1rem; color: #38bdf8; margin-top: 10px; font-weight: 500; font-style: italic; letter-spacing: 0.5px; }
 
-        .slogan {
-            font-size: 1.05rem;
-            color: #00ffff;
-            margin-top: 8px;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-        }
-
-        /* Ünvan (Məkan) və Zəng paneli */
+        /* ƏLAQƏ PANELİ */
         .contact-bar {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            background: rgba(24, 28, 36, 0.8);
-            padding: 14px;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            flex-wrap: wrap;
-            font-size: 0.9rem;
+            display: flex; justify-content: center; gap: 40px; background: rgba(15, 23, 42, 0.9);
+            padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); flex-wrap: wrap; font-size: 0.95rem;
         }
+        .contact-item { display: flex; align-items: center; gap: 10px; color: #cbd5e1; }
+        .contact-item i { color: #ff5500; font-size: 1.2rem; }
+        .contact-item a { color: #fff; text-decoration: none; font-weight: 600; }
 
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: #cbd5e1;
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
 
-        .contact-item i {
-            color: #ff5500;
-            font-size: 1.1rem;
-        }
+        /* SƏHİFƏ KEÇİDLƏRİ */
+        .page { display: none; opacity: 0; transform: translateY(15px); transition: all 0.4s ease-in-out; }
+        .page.active { display: block; opacity: 1; transform: translateY(0); }
 
-        .contact-item a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 30px 20px;
-        }
-
-        .page {
-            display: none;
-            opacity: 0;
-            transform: translateY(10px);
-            transition: all 0.3s ease-in-out;
-        }
-
-        .page.active {
-            display: block;
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* 30 Brend üçün Professional Grid */
-        .brand-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
-            gap: 15px;
-            margin-top: 25px;
-        }
-
+        /* BRENDLƏR GRID SİSTEMİ */
+        .brand-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 15px; margin-top: 30px; }
         .brand-card {
-            background: rgba(20, 23, 28, 0.75);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            padding: 18px 10px;
-            text-align: center;
-            cursor: pointer;
-            backdrop-filter: blur(4px);
-            transition: all 0.25s ease;
+            background: rgba(30, 41, 59, 0.6); border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px; padding: 20px 10px; text-align: center; cursor: pointer; backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
         }
+        .brand-card:hover { border-color: #ff5500; transform: translateY(-5px); background: rgba(30, 41, 59, 0.9); box-shadow: 0 8px 20px rgba(255, 85, 0, 0.2); }
+        /* Loqolar ağ/boz tonunda gəlib üzərinə gələndə parlayır */
+        .brand-card img { width: 55px; height: 55px; object-fit: contain; filter: drop-shadow(0px 0px 5px rgba(255,255,255,0.2)); }
+        .brand-card h3 { margin-top: 12px; font-size: 0.85rem; font-weight: 500; color: #fff; }
 
-        .brand-card:hover {
-            border-color: #ff5500;
-            transform: translateY(-4px);
-            background: rgba(24, 28, 36, 0.9);
-            box-shadow: 0 5px 15px rgba(255, 85, 0, 0.15);
-        }
-
-        .brand-card img {
-            width: 45px;
-            height: 45px;
-            object-fit: contain;
-        }
-
-        .brand-card h3 {
-            margin-top: 10px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: #fff;
-        }
-
-        /* Seçim Bölməsi */
-        .choice-container {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            margin-top: 35px;
-            flex-wrap: wrap;
-        }
-
+        /* SEÇİM KARTLARI */
+        .choice-container { display: flex; justify-content: center; gap: 30px; margin-top: 40px; flex-wrap: wrap; }
         .choice-card {
-            background: rgba(20, 23, 28, 0.85);
-            border: 1px solid rgba(255,255,255,0.1);
-            width: 280px;
-            padding: 35px 20px;
-            border-radius: 16px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.2s;
+            background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(255,255,255,0.1); width: 280px; padding: 40px 20px;
+            border-radius: 16px; text-align: center; cursor: pointer; transition: all 0.3s;
         }
+        .choice-card:hover { border-color: #38bdf8; transform: translateY(-5px); box-shadow: 0 10px 30px rgba(56, 189, 248, 0.15); }
+        .choice-card i { font-size: 3.5rem; color: #38bdf8; margin-bottom: 20px; }
 
-        .choice-card:hover {
-            border-color: #00ffff;
-            transform: translateY(-4px);
+        /* QALEREYA SİSTEMİ (Yeni) */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
         }
-
-        .choice-card i {
-            font-size: 3rem;
-            color: #00ffff;
-            margin-bottom: 15px;
-        }
-
-        /* Before/After Paneli */
-        .slider-wrapper {
-            position: relative;
-            width: 100%;
-            max-width: 600px;
-            height: 380px;
-            border-radius: 14px;
+        .gallery-item {
+            background: rgba(30, 41, 59, 0.7);
+            border-radius: 12px;
             overflow: hidden;
-            border: 2px solid rgba(255,255,255,0.1);
-            margin: 20px auto;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s;
         }
-
-        .slider-img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
+        .gallery-item:hover {
+            transform: scale(1.02);
+            border-color: #ff5500;
         }
-
-        .img-before {
-            background-image: url('https://images.unsplash.com/photo-1562618456-131802c27dfa?q=80&w=600&auto=format&fit=crop'); 
+        .gallery-images { display: flex; width: 100%; height: 200px; }
+        .gallery-images img { width: 50%; height: 100%; object-fit: cover; }
+        .gallery-images .before { border-right: 2px solid #ff5500; position: relative; }
+        /* Şəkillərin üstünə Əvvəl/Sonra yazısı */
+        .img-label {
+            position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.7);
+            padding: 3px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold;
         }
-
-        .img-after {
-            background-image: url('https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=600&auto=format&fit=crop'); 
-            width: 50%;
-            border-right: 3px solid #ff5500;
-        }
-
-        .slider-input {
-            position: absolute;
-            -webkit-appearance: none;
-            appearance: none;
-            width: 100%;
-            height: 100%;
-            background: transparent;
-            opacity: 0;
-            cursor: ew-resize;
-            z-index: 10;
-        }
-
-        .price-box {
-            background: rgba(20, 23, 28, 0.9);
-            padding: 15px 35px;
-            border-radius: 10px;
-            border-left: 4px solid #ff5500;
-            font-size: 1.2rem;
-            display: inline-block;
-            margin-top: 10px;
-        }
+        .gallery-info { padding: 15px; text-align: center; }
+        .gallery-info h4 { font-size: 1rem; color: #38bdf8; margin-bottom: 5px; }
+        .gallery-info p { font-size: 0.85rem; color: #94a3b8; }
 
         .btn-back {
-            background: #232830;
-            color: #fff;
-            border: none;
-            padding: 10px 22px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 0.85rem;
-            font-weight: 500;
-            transition: background 0.2s;
+            background: #1e293b; color: #fff; border: 1px solid #334155; padding: 10px 25px;
+            border-radius: 30px; cursor: pointer; font-size: 0.9rem; font-weight: 500; transition: all 0.3s;
         }
+        .btn-back:hover { background: #ff5500; border-color: #ff5500; }
 
-        .btn-back:hover {
-            background: #ff5500;
-        }
+        /* Məlumat Bloku */
+        .features-box { background: rgba(15, 23, 42, 0.8); padding: 40px; border-radius: 16px; margin-top: 60px; text-align: center; border: 1px solid rgba(255,255,255,0.05); }
+        .features-grid { display: flex; justify-content: center; gap: 40px; margin-top: 25px; flex-wrap: wrap; }
+        .feature { max-width: 250px; }
+        .feature i { font-size: 2.5rem; color: #ff5500; margin-bottom: 15px; }
 
-        /* Canlı Peşəkar WhatsApp Düyməsi */
         .whatsapp-float {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            background: #25d366;
-            color: white;
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-            z-index: 100;
-            text-decoration: none;
+            position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white;
+            width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center;
+            font-size: 35px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); z-index: 100; text-decoration: none;
+            transition: transform 0.3s;
         }
+        .whatsapp-float:hover { transform: scale(1.1) rotate(10deg); }
     </style>
 </head>
 <body>
@@ -267,100 +127,125 @@
     </header>
 
     <div class="contact-bar">
-        <div class="contact-item">
-            <i class="fa-solid fa-location-dot"></i>
-            <span>Sumqayıt şəhəri, Avto Servis Zonası</span>
-        </div>
-        <div class="contact-item">
-            <i class="fa-solid fa-phone"></i>
-            <a href="tel:+994556057891">055 605 78 91</a>
-        </div>
+        <div class="contact-item"><i class="fa-solid fa-location-dot"></i> <span>Sumqayıt şəhəri, Avto Servis Zonası</span></div>
+        <div class="contact-item"><i class="fa-solid fa-phone"></i> <a href="tel:+994556057891">055 605 78 91</a></div>
     </div>
 
     <div class="container">
         
         <div id="page-brands" class="page active">
-            <h2 style="font-size: 1rem; font-weight: 400; text-align: center; margin-bottom: 25px; color: #94a3b8; letter-spacing: 0.5px;">Avtomobilinizin markasını seçin:</h2>
+            <h2 style="font-size: 1.1rem; text-align: center; margin-bottom: 25px; color: #cbd5e1;">Avtomobilinizin markasını seçin:</h2>
             
             <div class="brand-grid">
-                <div class="brand-card" onclick="selectBrand('Mercedes-Benz')"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/mercedes_benz.png" alt="Mercedes"><h3>Mercedes</h3></div>
-                <div class="brand-card" onclick="selectBrand('BMW')"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/bmw.png" alt="BMW"><h3>BMW</h3></div>
-                <div class="brand-card" onclick="selectBrand('Audi')"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/audi.png" alt="Audi"><h3>Audi</h3></div>
-                <div class="brand-card" onclick="selectBrand('Opel')"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/opel.png" alt="Opel"><h3>Opel</h3></div>
-                <div class="brand-card" onclick="selectBrand('Toyota')"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/toyota.png" alt="Toyota"><h3>Toyota</h3></div>
-                <div class="brand-card" onclick="selectBrand('Hyundai')"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/hyundai.png" alt="Hyundai"><h3>Hyundai</h3></div>
-                <div class="brand-card" onclick="selectBrand('Kia')"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/kia.png" alt="Kia"><h3>Kia</h3></div>
-                <div class="brand-card" onclick="selectBrand('Chevrolet')"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/chevrolet.png" alt="Chevrolet"><h3>Chevrolet</h3></div>
-                <div class="brand-card" onclick="selectBrand('Ford')"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/ford.png" alt="Ford"><h3>Ford</h3></div>
-                <div class="brand-card" onclick="selectBrand('Nissan')"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/nissan.png" alt="Nissan"><h3>Nissan</h3></div>
-                
-                <div class="brand-card" onclick="selectBrand('Volkswagen')"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/volkswagen.png" alt="VW"><h3>Volkswagen</h3></div>
-                <div class="brand-card" onclick="selectBrand('Lada')"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/lada.png" alt="Lada"><h3>Lada</h3></div>
-                <div class="brand-card" onclick="selectBrand('Honda')"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/honda.png" alt="Honda"><h3>Honda</h3></div>
-                <div class="brand-card" onclick="selectBrand('Porsche')"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/porsche.png" alt="Porsche"><h3>Porsche</h3></div>
-                <div class="brand-card" onclick="selectBrand('Lexus')"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/lexus.png" alt="Lexus"><h3>Lexus</h3></div>
-                <div class="brand-card" onclick="selectBrand('Land Rover')"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/land_rover.png" alt="Land Rover"><h3>Land Rover</h3></div>
-                <div class="brand-card" onclick="selectBrand('Mazda')"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/mazda.png" alt="Mazda"><h3>Mazda</h3></div>
-                <div class="brand-card" onclick="selectBrand('Mitsubishi')"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/mitsubishi.png" alt="Mitsubishi"><h3>Mitsubishi</h3></div>
-                <div class="brand-card" onclick="selectBrand('Renault')"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/renault.png" alt="Renault"><h3>Renault</h3></div>
-                <div class="brand-card" onclick="selectBrand('Peugeot')"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/peugeot.png" alt="Peugeot"><h3>Peugeot</h3></div>
-                
-                <div class="brand-card" onclick="selectBrand('Subaru')"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/subaru.png" alt="Subaru"><h3>Subaru</h3></div>
-                <div class="brand-card" onclick="selectBrand('Suzuki')"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/suzuki.png" alt="Suzuki"><h3>Suzuki</h3></div>
-                <div class="brand-card" onclick="selectBrand('Volvo')"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/volvo.png" alt="Volvo"><h3>Volvo</h3></div>
-                <div class="brand-card" onclick="selectBrand('Fiat')"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/fiat.png" alt="Fiat"><h3>Fiat</h3></div>
-                <div class="brand-card" onclick="selectBrand('Jeep')"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/jeep.png" alt="Jeep"><h3>Jeep</h3></div>
-                <div class="brand-card" onclick="selectBrand('Infiniti')"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/infiniti.png" alt="Infiniti"><h3>Infiniti</h3></div>
-                <div class="brand-card" onclick="selectBrand('Jaguar')"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/jaguar.png" alt="Jaguar"><h3>Jaguar</h3></div>
-                <div class="brand-card" onclick="selectBrand('Cadillac')"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/cadillac.png" alt="Cadillac"><h3>Cadillac</h3></div>
-                <div class="brand-card" onclick="selectBrand('Citroen')"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/citroen.png" alt="Citroen"><h3>Citroen</h3></div>
-                <div class="brand-card" onclick="selectBrand('Dacia')"><img src="https://www.car-logos.org/wp-content/uploads/2011/09/dacia.png" alt="Dacia"><h3>Dacia</h3></div>
+                <div class="brand-card" onclick="selectBrand('Mercedes-Benz')"><img src="https://logo.clearbit.com/mercedes-benz.com" alt="Mercedes" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Mercedes-Logo.svg/1024px-Mercedes-Logo.svg.png'"><h3>Mercedes</h3></div>
+                <div class="brand-card" onclick="selectBrand('BMW')"><img src="https://logo.clearbit.com/bmw.com" alt="BMW" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/BMW.svg/1024px-BMW.svg.png'"><h3>BMW</h3></div>
+                <div class="brand-card" onclick="selectBrand('Audi')"><img src="https://logo.clearbit.com/audi.com" alt="Audi"><h3>Audi</h3></div>
+                <div class="brand-card" onclick="selectBrand('Opel')"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Opel-Logo-2023.png/600px-Opel-Logo-2023.png" alt="Opel"><h3>Opel</h3></div>
+                <div class="brand-card" onclick="selectBrand('Toyota')"><img src="https://logo.clearbit.com/toyota.com" alt="Toyota"><h3>Toyota</h3></div>
+                <div class="brand-card" onclick="selectBrand('Hyundai')"><img src="https://logo.clearbit.com/hyundai.com" alt="Hyundai"><h3>Hyundai</h3></div>
+                <div class="brand-card" onclick="selectBrand('Kia')"><img src="https://logo.clearbit.com/kia.com" alt="Kia"><h3>Kia</h3></div>
+                <div class="brand-card" onclick="selectBrand('Chevrolet')"><img src="https://logo.clearbit.com/chevrolet.com" alt="Chevrolet"><h3>Chevrolet</h3></div>
+                <div class="brand-card" onclick="selectBrand('Ford')"><img src="https://logo.clearbit.com/ford.com" alt="Ford"><h3>Ford</h3></div>
+                <div class="brand-card" onclick="selectBrand('Nissan')"><img src="https://logo.clearbit.com/nissan.com" alt="Nissan"><h3>Nissan</h3></div>
+                <div class="brand-card" onclick="selectBrand('Volkswagen')"><img src="https://logo.clearbit.com/volkswagen.com" alt="VW"><h3>Volkswagen</h3></div>
+                <div class="brand-card" onclick="selectBrand('Lada')"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Lada_Logo_2015.svg/1024px-Lada_Logo_2015.svg.png" alt="Lada"><h3>Lada</h3></div>
+                <div class="brand-card" onclick="selectBrand('Honda')"><img src="https://logo.clearbit.com/honda.com" alt="Honda"><h3>Honda</h3></div>
+                <div class="brand-card" onclick="selectBrand('Porsche')"><img src="https://logo.clearbit.com/porsche.com" alt="Porsche"><h3>Porsche</h3></div>
+                <div class="brand-card" onclick="selectBrand('Lexus')"><img src="https://logo.clearbit.com/lexus.com" alt="Lexus"><h3>Lexus</h3></div>
+                <div class="brand-card" onclick="selectBrand('Land Rover')"><img src="https://logo.clearbit.com/landrover.com" alt="Land Rover"><h3>Land Rover</h3></div>
+                <div class="brand-card" onclick="selectBrand('Mazda')"><img src="https://logo.clearbit.com/mazda.com" alt="Mazda"><h3>Mazda</h3></div>
+                <div class="brand-card" onclick="selectBrand('Mitsubishi')"><img src="https://logo.clearbit.com/mitsubishi.com" alt="Mitsubishi"><h3>Mitsubishi</h3></div>
+                <div class="brand-card" onclick="selectBrand('Renault')"><img src="https://logo.clearbit.com/renault.com" alt="Renault"><h3>Renault</h3></div>
+                <div class="brand-card" onclick="selectBrand('Peugeot')"><img src="https://logo.clearbit.com/peugeot.com" alt="Peugeot"><h3>Peugeot</h3></div>
+                <div class="brand-card" onclick="selectBrand('Subaru')"><img src="https://logo.clearbit.com/subaru.com" alt="Subaru"><h3>Subaru</h3></div>
+                <div class="brand-card" onclick="selectBrand('Suzuki')"><img src="https://logo.clearbit.com/suzuki.com" alt="Suzuki"><h3>Suzuki</h3></div>
+                <div class="brand-card" onclick="selectBrand('Volvo')"><img src="https://logo.clearbit.com/volvo.com" alt="Volvo"><h3>Volvo</h3></div>
+                <div class="brand-card" onclick="selectBrand('Fiat')"><img src="https://logo.clearbit.com/fiat.com" alt="Fiat"><h3>Fiat</h3></div>
+                <div class="brand-card" onclick="selectBrand('Jeep')"><img src="https://logo.clearbit.com/jeep.com" alt="Jeep"><h3>Jeep</h3></div>
+                <div class="brand-card" onclick="selectBrand('Infiniti')"><img src="https://logo.clearbit.com/infiniti.com" alt="Infiniti"><h3>Infiniti</h3></div>
+                <div class="brand-card" onclick="selectBrand('Jaguar')"><img src="https://logo.clearbit.com/jaguar.com" alt="Jaguar"><h3>Jaguar</h3></div>
+                <div class="brand-card" onclick="selectBrand('Cadillac')"><img src="https://logo.clearbit.com/cadillac.com" alt="Cadillac"><h3>Cadillac</h3></div>
+                <div class="brand-card" onclick="selectBrand('Khazar')"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Khazar_Logo.png/600px-Khazar_Logo.png" alt="Khazar" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3202/3202926.png'"><h3>Khazar</h3></div>
+                <div class="brand-card" onclick="selectBrand('Digər')"><img src="https://cdn-icons-png.flaticon.com/512/5111/5111166.png" alt="Digər"><h3>Digər Maşınlar</h3></div>
+            </div>
+
+            <div class="features-box">
+                <h2 style="color: #fff; font-size: 1.5rem;">Niyə Məhz Arzuman Usta?</h2>
+                <div class="features-grid">
+                    <div class="feature">
+                        <i class="fa-solid fa-award"></i>
+                        <h3 style="color: #fff; margin-bottom: 5px;">Peşəkar Avadanlıq</h3>
+                        <p style="color: #94a3b8; font-size: 0.9rem;">Faraların zədələnmədən zavod keyfiyyətində bərpası və yığılması.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fa-solid fa-droplet-slash"></i>
+                        <h3 style="color: #fff; margin-bottom: 5px;">Germetizasiya</h3>
+                        <p style="color: #94a3b8; font-size: 0.9rem;">İçəri su sızma və tərləmənin tamamilə qarşısının alınması.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fa-solid fa-handshake"></i>
+                        <h3 style="color: #fff; margin-bottom: 5px;">Rəsmi Zəmanət</h3>
+                        <p style="color: #94a3b8; font-size: 0.9rem;">Görülən hər bir işə və quraşdırılan detallara 100% zəmanət verilir.</p>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div id="page-services" class="page">
             <button class="btn-back" onclick="goBack('page-brands')"><i class="fa-solid fa-arrow-left"></i> Geri Dön</button>
-            <h2 id="brand-title" style="text-align: center; font-size: 1.3rem; margin-top: 15px;"></h2>
+            <h2 id="brand-title" style="text-align: center; font-size: 1.4rem; margin-top: 15px; color: #fff;"></h2>
             <div class="choice-container">
-                <div class="choice-card" onclick="selectService('Fara')">
+                <div class="choice-card" onclick="showGallery('Fara')">
                     <i class="fa-solid fa-lightbulb"></i>
-                    <h3 style="font-size: 1.1rem; color: #fff;">Fara Xidmətləri</h3>
+                    <h3 style="font-size: 1.2rem; color: #fff;">Fara Xidmətləri</h3>
+                    <p style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px;">Polirovka, Təmizlik, Bi-LED Linzalar</p>
                 </div>
-                <div class="choice-card" onclick="selectService('Stop')">
+                <div class="choice-card" onclick="showGallery('Stop')">
                     <i class="fa-solid fa-car-rear" style="color: #ff3333;"></i>
-                    <h3 style="font-size: 1.1rem; color: #fff;">Stop Xidmətləri</h3>
+                    <h3 style="font-size: 1.2rem; color: #fff;">Stop Xidmətləri</h3>
+                    <p style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px;">Çatların təmiri, Rənglənmə, LED bərpası</p>
                 </div>
             </div>
         </div>
 
-        <div id="page-result" class="page">
-            <button class="btn-back" onclick="goBack('page-services')"><i class="fa-solid fa-arrow-left"></i> Geri Dön</button>
-            <h2 id="result-title" style="text-align: center; font-size: 1.3rem; margin: 15px 0;"></h2>
-            
-            <div style="text-align: center;">
-                <div class="slider-wrapper">
-                    <div class="slider-img img-before"></div>
-                    <div class="slider-img img-after" id="after-img"></div>
-                    <input type="range" min="0" max="100" value="50" class="slider-input" id="slider-range">
-                </div>
-                
-                <p style="color: #94a3b8; font-size: 0.85rem; margin-bottom: 15px;">Effekti görmək üçün ortadakı xətti sağa-sola sürüşdürün</p>
-
-                <div class="price-box">
-                    Xidmət Qiyməti: <span id="price-text" style="color: #ff5500; font-weight: 700;">30 AZN-dən</span>
-                </div>
+        <div id="page-gallery" class="page">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; margin-bottom: 20px;">
+                <button class="btn-back" onclick="goBack('page-services')"><i class="fa-solid fa-arrow-left"></i> Geri Dön</button>
+                <h2 id="gallery-title" style="font-size: 1.2rem; color: #ff5500;">İşlərimiz Qalereyası</h2>
             </div>
+            
+            <p id="gallery-message" style="text-align: center; color: #cbd5e1; font-size: 1rem; margin-top: 20px;"></p>
+            
+            <div class="gallery-grid" id="gallery-container"></div>
         </div>
 
     </div>
 
-    <a href="https://wa.me/994556057891" class="whatsapp-float" target="_blank">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
+    <a href="https://wa.me/994556057891" class="whatsapp-float" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
 
     <script>
         let selectedBrand = '';
         let selectedService = '';
+
+        /* ========================================================================
+        QALEREYA MƏLUMAT BAZASI (Bura İstədiyiniz Qədər Şəkil Əlavə Edə Bilərsiniz)
+        ========================================================================
+        Yeni şəkil əlavə etmək üçün sadəcə aşağıdakı bloklardan birini kopyalayın, 
+        brand (marka) adını, type (Fara və ya Stop) hissəsini və şəkil linklərini (imgBefore və imgAfter) dəyişin!
+        */
+        const myWorks = [
+            { brand: 'Mercedes-Benz', type: 'Fara', imgBefore: 'https://images.unsplash.com/photo-1562618456-131802c27dfa?w=400', imgAfter: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=400', title: 'W212 Fara Şüşəsi Bərpası', desc: 'İç və çöl təmizlik, germetizasiya' },
+            { brand: 'BMW', type: 'Fara', imgBefore: 'https://images.unsplash.com/photo-1562618456-131802c27dfa?w=400', imgAfter: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=400', title: 'F30 Bi-LED Quraşdırılması', desc: 'Orijinal zavod lupalarının dəyişimi' },
+            { brand: 'Opel', type: 'Fara', imgBefore: 'https://images.unsplash.com/photo-1562618456-131802c27dfa?w=400', imgAfter: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=400', title: 'Astra H Fara Polirovkası', desc: 'Saralmanın 100% aradan qaldırılması' },
+            { brand: 'Toyota', type: 'Fara', imgBefore: 'https://images.unsplash.com/photo-1562618456-131802c27dfa?w=400', imgAfter: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=400', title: 'Prius 20 Fara Yığılması', desc: 'Daxili təmizlik və zəmanət' },
+            { brand: 'Toyota', type: 'Stop', imgBefore: 'https://images.unsplash.com/photo-1562618456-131802c27dfa?w=400', imgAfter: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=400', title: 'Prius 30 Stop Təmiri', desc: 'Sınmış şüşənin bərpası və LED' },
+            { brand: 'Hyundai', type: 'Fara', imgBefore: 'https://images.unsplash.com/photo-1562618456-131802c27dfa?w=400', imgAfter: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=400', title: 'Elantra Optika Bərpası', desc: 'Tam kimyəvi polirovka' },
+            { brand: 'Kia', type: 'Fara', imgBefore: 'https://images.unsplash.com/photo-1562618456-131802c27dfa?w=400', imgAfter: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=400', title: 'Optima Fara Təmizliyi', desc: 'Buxarlanmanın ləğvi' },
+            { brand: 'Chevrolet', type: 'Fara', imgBefore: 'https://images.unsplash.com/photo-1562618456-131802c27dfa?w=400', imgAfter: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=400', title: 'Cruze Fara Yığılması', desc: 'Qara mat boya və LED' },
+            { brand: 'Ford', type: 'Fara', imgBefore: 'https://images.unsplash.com/photo-1562618456-131802c27dfa?w=400', imgAfter: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=400', title: 'Fusion Fara Restavrasiya', desc: 'Amerikankadan Avropaya keçid' },
+            { brand: 'Lada', type: 'Stop', imgBefore: 'https://images.unsplash.com/photo-1562618456-131802c27dfa?w=400', imgAfter: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=400', title: 'Niva Urban Stop', desc: 'Stopların xüsusi yığılması' }
+        ];
+        // ========================================================================
 
         function switchPage(fromId, toId) {
             const fromPage = document.getElementById(fromId);
@@ -370,39 +255,67 @@
                 fromPage.style.display = 'none';
                 toPage.style.display = 'block';
                 setTimeout(() => { toPage.classList.add('active'); }, 50);
-            }, 200);
+            }, 300);
         }
 
         function selectBrand(brand) {
             selectedBrand = brand;
-            document.getElementById('brand-title').innerText = brand + " - Hansı optika təmir olunacaq?";
+            document.getElementById('brand-title').innerText = brand + " - Nə təmir olunacaq?";
             switchPage('page-brands', 'page-services');
         }
 
-        function selectService(service) {
+        function showGallery(service) {
             selectedService = service;
-            document.getElementById('result-title').innerText = selectedBrand + " " + service + " Restavrasiya İşimiz";
+            document.getElementById('gallery-title').innerText = selectedBrand + " | " + service + " İşlərimiz";
             
-            // Premium markalar üçün qiymət tənzimləməsi
-            if(['BMW', 'Mercedes-Benz', 'Audi', 'Porsche', 'Lexus', 'Land Rover', 'Jaguar'].includes(selectedBrand)) {
-                document.getElementById('price-text').innerText = "50 AZN-dən";
+            const container = document.getElementById('gallery-container');
+            const message = document.getElementById('gallery-message');
+            container.innerHTML = ''; // Əvvəlkiləri sil
+
+            // Seçilmiş marka və xidmətə uyğun şəkilləri axtarır
+            let filteredWorks = myWorks.filter(work => work.brand === selectedBrand && work.type === service);
+
+            // Əgər o maşın üçün xüsusi şəkil yoxdursa, başqa maşınların həmin xidmət şəkillərini göstər
+            if (filteredWorks.length === 0) {
+                message.innerText = "Bu marka üçün hələ şəkil yüklənməyib. Amma digər avtomobillərdəki oxşar işlərimizə baxa bilərsiniz:";
+                filteredWorks = myWorks.filter(work => work.type === service).slice(0, 6); // Son 6 işi göstər
             } else {
-                document.getElementById('price-text').innerText = "30 AZN-dən";
+                message.innerText = "";
             }
-            switchPage('page-services', 'page-result');
+
+            // Şəkilləri HTML olaraq ekrana düz
+            filteredWorks.forEach(work => {
+                const cardHtml = `
+                    <div class="gallery-item">
+                        <div class="gallery-images">
+                            <div class="before">
+                                <span class="img-label">Əvvəl</span>
+                                <img src="${work.imgBefore}" alt="Əvvəl">
+                            </div>
+                            <div style="position: relative; width: 50%;">
+                                <span class="img-label" style="background: rgba(255,85,0,0.8);">Sonra</span>
+                                <img src="${work.imgAfter}" alt="Sonra" style="width:100%;">
+                            </div>
+                        </div>
+                        <div class="gallery-info">
+                            <h4>${work.title}</h4>
+                            <p>${work.desc}</p>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += cardHtml;
+            });
+
+            switchPage('page-services', 'page-gallery');
         }
 
         function goBack(toId) {
-            if(document.getElementById('page-result').style.display === 'block') {
-                switchPage('page-result', 'page-services');
+            if(document.getElementById('page-gallery').style.display === 'block') {
+                switchPage('page-gallery', 'page-services');
             } else {
                 switchPage('page-services', 'page-brands');
             }
         }
-
-        document.getElementById('slider-range').addEventListener('input', (e) => {
-            document.getElementById('after-img').style.width = e.target.value + '%';
-        });
     </script>
 </body>
 </html>
