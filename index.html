@@ -25,11 +25,14 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
 
+        /* AĞ EKRAN PROBLEMİNİN HƏLLİ BURA ƏLAVƏ EDİLDİ */
         body {
-            background-color: var(--bg-dark); 
-            background: linear-gradient(rgba(6, 9, 19, 0.82), rgba(6, 9, 19, 0.92)), 
-                        url('https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=1920&auto=format&fit=crop') no-repeat center center fixed;
+            background-color: var(--bg-dark) !important; 
+            background-image: linear-gradient(rgba(6, 9, 19, 0.85), rgba(6, 9, 19, 0.95)), url('https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=1920&auto=format&fit=crop');
             background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
             color: #f1f5f9;
             min-height: 100vh;
             overflow-x: hidden;
@@ -97,20 +100,4 @@
         .widget-title { font-family: 'Orbitron', sans-serif; font-size: 1.1rem; color: #fff; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
 
         .slider-wrapper { position: relative; width: 100%; height: 280px; overflow: hidden; border-radius: 12px; border: 2px solid rgba(255,255,255,0.1); }
-        .slider-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
-        .img-before { z-index: 1; }
-        .img-after { z-index: 2; width: 50%; border-right: 3px solid var(--primary-orange); }
-        .slider-input { position: absolute; left: 0; top: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; z-index: 3; }
-        .slider-label { position: absolute; bottom: 12px; background: rgba(0,0,0,0.75); padding: 4px 12px; border-radius: 6px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; z-index: 2; letter-spacing: 1px; }
-
-        .rating-box { display: flex; align-items: center; justify-content: space-between; margin-top: 20px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.05); }
-        .rating-box span { font-size: 0.95rem; color: #cbd5e1; }
-        .stars { color: #ffbb00; font-size: 1.2rem; display: flex; gap: 4px; }
-
-        .upload-container { display: flex; flex-direction: column; align-items: center; text-align: center; }
-        .upload-title-orange { font-family: 'Orbitron', sans-serif; color: #ffa500; font-size: 1.1rem; font-weight: 700; margin-bottom: 5px; letter-spacing: 1px; }
-        .upload-subtitle { font-size: 0.9rem; color: #fff; margin-bottom: 25px; text-transform: uppercase; }
-        .circle-dropzone {
-            width: 130px; height: 130px; border-radius: 50%; border: 2px dashed #ffa500; display: flex; flex-direction: column;
-            align-items: center; justify-content: center; cursor: pointer; position: relative; background: rgba(0, 0, 0, 0.3);
-            margin-bottom: 20px; box-shadow: inset 0 0 15px rgba(255, 165, 0, 0.1); transition: all 0.3s; overflow: hidden
+        .slider-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit
