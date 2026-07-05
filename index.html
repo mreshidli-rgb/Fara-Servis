@@ -146,4 +146,280 @@
         .widget-title { font-family: 'Orbitron', sans-serif; font-size: 1.1rem; color: #fff; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
 
         /* SLAYDER STİLLƏRİ */
-        .slider-wrapper { position: relative; width: 100%; height: 280px; overflow: hidden; border-radius: 12px; border:
+        .slider-wrapper { position: relative; width: 100%; height: 280px; overflow: hidden; border-radius: 12px; border: 2px solid rgba(255,255,255,0.1); }
+        .slider-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+        .img-before { z-index: 1; }
+        .img-after { z-index: 2; width: 50%; border-right: 3px solid var(--primary-orange); }
+        .slider-input { position: absolute; left: 0; top: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; z-index: 3; }
+        .slider-label { position: absolute; bottom: 12px; background: rgba(0,0,0,0.75); padding: 4px 12px; border-radius: 6px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; z-index: 2; }
+
+        .rating-box { display: flex; align-items: center; justify-content: space-between; margin-top: 20px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.05); }
+        .stars { color: #ffbb00; font-size: 1.2rem; display: flex; gap: 4px; }
+
+        /* UPLOAD STİLLƏRİ */
+        .upload-container { display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .upload-title-orange { font-family: 'Orbitron', sans-serif; color: #ffa500; font-size: 1.1rem; font-weight: 700; margin-bottom: 5px; }
+        .upload-subtitle { font-size: 0.9rem; color: #fff; margin-bottom: 25px; text-transform: uppercase; }
+        
+        .circle-dropzone {
+            width: 130px; height: 130px; border-radius: 50%; border: 2px dashed #ffa500; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; cursor: pointer; position: relative; background: rgba(0, 0, 0, 0.3); margin-bottom: 20px;
+            overflow: hidden; transition: all 0.3s ease;
+        }
+        .circle-dropzone:hover { box-shadow: 0 0 15px rgba(255, 165, 0, 0.4); border-color: #fff; }
+        .circle-dropzone i { font-size: 2rem; color: rgba(255,255,255,0.4); margin-bottom: 5px; }
+        .circle-dropzone p { font-size: 0.75rem; color: var(--text-gray); text-transform: uppercase; }
+        
+        .circle-dropzone img { 
+            position: absolute; width: 100%; height: 100%; object-fit: cover; top: 0; left: 0; 
+            display: none; border-radius: 50%; z-index: 5;
+        }
+        
+        .btn-cyber-upload {
+            background: transparent; border: 2px solid var(--cyber-cyan); color: #fff; padding: 10px 45px;
+            border-radius: 25px; font-family: 'Orbitron', sans-serif; font-weight: 700; cursor: pointer; letter-spacing: 2px; transition: all 0.3s;
+        }
+        .btn-cyber-upload:hover { background: var(--cyber-cyan); color: #000; box-shadow: 0 0 20px var(--cyber-cyan); }
+
+        /* CONTACT BAR */
+        .bottom-contact-bar {
+            position: fixed; bottom: 25px; right: 35px; background: rgba(10, 25, 17, 0.85); border: 1px solid #25d366;
+            padding: 10px 20px; border-radius: 30px; display: flex; align-items: center; gap: 12px; backdrop-filter: blur(10px); z-index: 100; text-decoration: none;
+        }
+        .bottom-contact-bar span { color: #fff; font-weight: 600; font-family: 'Orbitron', sans-serif; }
+        .bottom-contact-bar i { color: #25d366; font-size: 1.6rem; }
+        
+        /* Kiber Xəbərdarlıq Qutusu */
+        .empty-alert {
+            grid-column: 1/-1; text-align: center; color: #ff5500; padding: 30px; 
+            border: 1px dashed rgba(255, 85, 0, 0.3); border-radius: 10px; background: rgba(255, 85, 0, 0.02);
+            font-family: 'Orbitron', sans-serif; font-size: 0.95rem; letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Fara Servis Arzuman</h1>
+        <div class="slogan">Göz oxşayan parıltı, güvənli yolçuluq!</div>
+    </header>
+
+    <div class="container">
+        
+        <div class="search-section">
+            <h2>Maşınınızı Seçin</h2>
+            <div class="search-wrapper">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="searchBar" onkeyup="filterCars()" placeholder="Maşınınızı axtarın...">
+            </div>
+        </div>
+
+        <div class="brand-grid" id="brandGrid">
+            <div class="brand-card br-blue" onclick="selectBrand('Mercedes-Benz')"><i class="fa-solid fa-car-side brand-icon"></i><h3>Mercedes</h3></div>
+            <div class="brand-card br-white" onclick="selectBrand('BMW')"><i class="fa-solid fa-car brand-icon"></i><h3>BMW</h3></div>
+            <div class="brand-card br-red" onclick="selectBrand('Audi')"><i class="fa-solid fa-circle-nodes brand-icon"></i><h3>Audi</h3></div>
+            <div class="brand-card br-orange" onclick="selectBrand('Opel')"><i class="fa-solid fa-bolt brand-icon"></i><h3>Opel</h3></div>
+            <div class="brand-card br-yellow" onclick="selectBrand('Toyota')"><i class="fa-solid fa-bahai brand-icon"></i><h3>Toyota</h3></div>
+            <div class="brand-card br-red" onclick="selectBrand('Hyundai')"><i class="fa-solid fa-h brand-icon"></i><h3>Hyundai</h3></div>
+            <div class="brand-card br-blue" onclick="selectBrand('Kia')"><i class="fa-solid fa-k brand-icon"></i><h3>Kia</h3></div>
+            <div class="brand-card br-orange" onclick="selectBrand('Chevrolet')"><i class="fa-solid fa-cross brand-icon"></i><h3>Chevrolet</h3></div>
+            <div class="brand-card br-blue" onclick="selectBrand('Ford')"><i class="fa-solid fa-f brand-icon"></i><h3>Ford</h3></div>
+            <div class="brand-card br-white" onclick="selectBrand('Nissan')"><i class="fa-solid fa-circle-dot brand-icon"></i><h3>Nissan</h3></div>
+            <div class="brand-card br-blue" onclick="selectBrand('Volkswagen')"><i class="fa-solid fa-v brand-icon"></i><h3>Volkswagen</h3></div>
+            <div class="brand-card br-orange" onclick="selectBrand('Lada')"><i class="fa-solid fa-shield-halved brand-icon"></i><h3>Lada</h3></div>
+            <div class="brand-card br-red" onclick="selectBrand('Honda')"><i class="fa-solid fa-square-h brand-icon"></i><h3>Honda</h3></div>
+            <div class="brand-card br-yellow" onclick="selectBrand('Porsche')"><i class="fa-solid fa-crown brand-icon"></i><h3>Porsche</h3></div>
+            <div class="brand-card br-green" onclick="selectBrand('Lexus')"><i class="fa-solid fa-l brand-icon"></i><h3>Lexus</h3></div>
+            <div class="brand-card br-green" onclick="selectBrand('Land Rover')"><i class="fa-solid fa-mountain brand-icon"></i><h3>Land Rover</h3></div>
+            <div class="brand-card br-white" onclick="selectBrand('Mazda')"><i class="fa-solid fa-m brand-icon"></i><h3>Mazda</h3></div>
+            <div class="brand-card br-red" onclick="selectBrand('Mitsubishi')"><i class="fa-solid fa-diamond brand-icon"></i><h3>Mitsubishi</h3></div>
+            <div class="brand-card br-yellow" onclick="selectBrand('Renault')"><i class="fa-solid fa-rhombus brand-icon"></i><h3>Renault</h3></div>
+            <div class="brand-card br-blue" onclick="selectBrand('Peugeot')"><i class="fa-solid fa-paw brand-icon"></i><h3>Peugeot</h3></div>
+            <div class="brand-card br-blue" onclick="selectBrand('Subaru')"><i class="fa-solid fa-star-and-crescent brand-icon"></i><h3>Subaru</h3></div>
+            <div class="brand-card br-red" onclick="selectBrand('Suzuki')"><i class="fa-solid fa-s brand-icon"></i><h3>Suzuki</h3></div>
+            <div class="brand-card br-blue" onclick="selectBrand('Volvo')"><i class="fa-solid fa-circle-up brand-icon"></i><h3>Volvo</h3></div>
+            <div class="brand-card br-green" onclick="selectBrand('Jeep')"><i class="fa-solid fa-truck-monster brand-icon"></i><h3>Jeep</h3></div>
+            <div class="brand-card br-white" onclick="selectBrand('Fiat')"><i class="fa-solid fa-italic brand-icon"></i><h3>Fiat</h3></div>
+            <div class="brand-card br-orange" onclick="selectBrand('Infiniti')"><i class="fa-solid fa-infinity brand-icon"></i><h3>Infiniti</h3></div>
+            <div class="brand-card br-green" onclick="selectBrand('Jaguar')"><i class="fa-solid fa-cat brand-icon"></i><h3>Jaguar</h3></div>
+            <div class="brand-card br-yellow" onclick="selectBrand('Cadillac')"><i class="fa-solid fa-gem brand-icon"></i><h3>Cadillac</h3></div>
+            <div class="brand-card br-white" onclick="selectBrand('Khazar')"><i class="fa-solid fa-c brand-icon"></i><h3>Khazar</h3></div>
+            <div class="brand-card br-orange" onclick="selectBrand('Digər')"><i class="fa-solid fa-ellipsis brand-icon"></i><h3>Digər</h3></div>
+        </div>
+
+        <div class="dynamic-gallery-section" id="gallerySection">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--primary-orange); padding-bottom: 10px;">
+                <div class="widget-title" id="galleryTitle" style="margin-bottom: 0;">MƏHSUL QALEREYASI</div>
+                <button onclick="closeGallery()" style="background: transparent; border: 1px solid rgba(255,255,255,0.3); color: #fff; padding: 5px 15px; border-radius: 20px; cursor: pointer; font-size: 0.8rem;">Bağla ✕</button>
+            </div>
+            
+            <div class="category-switcher">
+                <button id="btnFara" class="btn-cat" onclick="switchCategory('fara')"><i class="fa-solid fa-lightbulb"></i> FARA</button>
+                <button id="btnStop" class="btn-cat" onclick="switchCategory('stop')"><i class="fa-solid fa-circle"></i> STOP</button>
+            </div>
+
+            <div class="dynamic-grid" id="galleryGrid">
+                </div>
+        </div>
+
+        <div class="bottom-widgets">
+            <div class="widget-card">
+                <div class="widget-title">Əvvəl/Sonra: Nümunə İşimiz</div>
+                <div class="slider-wrapper">
+                    <span class="slider-label" style="left: 12px;">Əvvəl</span>
+                    <img class="slider-img img-before" src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=700" alt="Köhnə Fara">
+                    <span class="slider-label" style="right: 12px; background: var(--primary-orange);">Sonra</span>
+                    <img id="afterImg" class="slider-img img-after" src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=700" alt="Təmiz Fara">
+                    <input type="range" class="slider-input" min="0" max="100" value="50" oninput="moveSlider(this.value)">
+                </div>
+                <div class="rating-box">
+                    <span>Arzuman ustanın işini qiymətləndirin</span>
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                </div>
+            </div>
+
+            <div class="widget-card">
+                <div class="upload-container">
+                    <div class="upload-title-orange">SİZİN ŞƏKİLLƏRİNİZ:</div>
+                    <div class="upload-subtitle">ÖZ ŞƏKLİNİZİ YÜKLƏYİN</div>
+                    
+                    <div class="circle-dropzone" onclick="triggerFileInput()">
+                        <i class="fa-solid fa-eye" id="uploadIcon"></i>
+                        <p id="uploadText">SİZİN ŞƏKLİNİZ</p>
+                        <input type="file" id="userPhotoInput" accept="image/*" style="display: none;" onchange="previewUserPhoto(this)">
+                        <img id="userPhotoPreview" src="" alt="Sizin Şəkil">
+                    </div>
+                    
+                    <button class="btn-cyber-upload" onclick="sendPhotoToWhatsApp()">YÜKLƏ</button>
+                    <div class="upload-footer-text" style="margin-top: 15px; font-size: 0.85rem; color: var(--text-gray);">Fara Şəklinizi Bizə Göndərin</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <a href="https://wa.me/994556057891" class="bottom-contact-bar" target="_blank">
+        <span>055 605 78 91</span><i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script>
+        let currentSelectedBrand = '';
+        let currentSelectedCategory = 'fara';
+
+        // FARA VƏ STOP ŞƏKİLLƏRİNİN MƏLUMAT BAZASI
+        const brandData = {
+            'Mercedes-Benz': {
+                fara: [
+                    { title: 'Mercedes W212 Ön Fara', desc: 'Saralmış şüşələrin və daxili linzaların restavrasiyası', before: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=400', after: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=400' }
+                ],
+                stop: [
+                    { title: 'Mercedes C-Class Arxa Stop', desc: 'Cızıqların aradan qaldırılması və laklanma', before: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=400', after: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=400' }
+                ]
+            },
+            'BMW': {
+                fara: [
+                    { title: 'BMW F30 Bi-LED Optika', desc: 'Zavod lupaları sökülərək yeni parlaq LED quraşdırıldı', before: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=400', after: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=400' }
+                ],
+                stop: []
+            },
+            'Audi': { fara: [], stop: [] }, 'Opel': { fara: [], stop: [] }, 'Toyota': { fara: [], stop: [] },
+            'Hyundai': { fara: [], stop: [] }, 'Kia': { fara: [], stop: [] }, 'Chevrolet': { fara: [], stop: [] },
+            'Ford': { fara: [], stop: [] }, 'Nissan': { fara: [], stop: [] }, 'Volkswagen': { fara: [], stop: [] },
+            'Lada': { fara: [], stop: [] }, 'Honda': { fara: [], stop: [] }, 'Porsche': { fara: [], stop: [] },
+            'Lexus': { fara: [], stop: [] }, 'Land Rover': { fara: [], stop: [] }, 'Mazda': { fara: [], stop: [] },
+            'Mitsubishi': { fara: [], stop: [] }, 'Renault': { fara: [], stop: [] }, 'Peugeot': { fara: [], stop: [] },
+            'Subaru': { fara: [], stop: [] }, 'Suzuki': { fara: [], stop: [] }, 'Volvo': { fara: [], stop: [] },
+            'Jeep': { fara: [], stop: [] }, 'Fiat': { fara: [], stop: [] }, 'Infiniti': { fara: [], stop: [] },
+            'Jaguar': { fara: [], stop: [] }, 'Cadillac': { fara: [], stop: [] }, 'Khazar': { fara: [], stop: [] },
+            'Digər': { fara: [], stop: [] }
+        };
+
+        function selectBrand(brandName) {
+            currentSelectedBrand = brandName;
+            document.getElementById('gallerySection').style.display = 'block';
+            document.getElementById('galleryTitle').innerText = `${brandName.toUpperCase()} - GÖRÜLƏN İŞLƏR`;
+            switchCategory('fara');
+            document.getElementById('gallerySection').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function switchCategory(category) {
+            currentSelectedCategory = category;
+            const btnFara = document.getElementById('btnFara');
+            const btnStop = document.getElementById('btnStop');
+            const grid = document.getElementById('galleryGrid');
+            
+            if (category === 'fara') {
+                btnFara.className = 'btn-cat active-fara';
+                btnStop.className = 'btn-cat';
+            } else {
+                btnFara.className = 'btn-cat';
+                btnStop.className = 'btn-cat active-stop';
+            }
+            
+            grid.innerHTML = '';
+            const brandWorks = brandData[currentSelectedBrand];
+            const works = (brandWorks && brandWorks[category]) ? brandWorks[category] : [];
+            
+            if (works.length === 0) {
+                grid.innerHTML = `<div class="empty-alert">⚠️ Bu markanın ${category.toUpperCase()} bölməsinə hələ şəkil qoyulmayıb. Bir azdan ustanız əlavə edəcək!</div>`;
+            } else {
+                works.forEach(work => {
+                    grid.innerHTML += `
+                        <div class="work-box">
+                            <div class="work-images">
+                                <img src="${work.before}" class="b-img" alt="Əvvəl">
+                                <img src="${work.after}" alt="Sonra">
+                            </div>
+                            <div class="work-info">
+                                <h4>${work.title}</h4>
+                                <p>${work.desc}</p>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+        }
+
+        function closeGallery() { document.getElementById('gallerySection').style.display = 'none'; }
+        
+        function filterCars() {
+            let input = document.getElementById('searchBar').value.toLowerCase();
+            let cards = document.getElementsByClassName('brand-card');
+            for (let i = 0; i < cards.length; i++) {
+                let brandName = cards[i].querySelector('h3').innerText.toLowerCase();
+                cards[i].style.display = brandName.includes(input) ? "flex" : "none";
+            }
+        }
+
+        function moveSlider(value) { document.getElementById('afterImg').style.width = value + '%'; }
+        
+        function triggerFileInput() { document.getElementById('userPhotoInput').click(); }
+        
+        function previewUserPhoto(input) {
+            const file = input.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const preview = document.getElementById('userPhotoPreview');
+                    preview.src = e.target.result; 
+                    preview.style.display = 'block'; 
+                    
+                    document.getElementById('uploadText').style.display = 'none';
+                    document.getElementById('uploadIcon').style.display = 'none';
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function sendPhotoToWhatsApp() {
+            const fileInput = document.getElementById('userPhotoInput');
+            if(fileInput.files.length === 0) {
+                alert("Zəhmət olmasa, əvvəlcə dairəyə klikləyərək faranızın şəklini seçin!");
+            } else {
+                const message = encodeURIComponent("Salam Arzuman usta! Saytınız üzərindən faramın şəklini seçdim, indi sizə göndərirəm. Baxıb zəhmət olmasa qiymət deyərdiniz.");
+                window.open(`https://wa.me/994556057891?text=${message}`, '_blank');
+            }
+        }
+    </script>
+</body>
+</html>
