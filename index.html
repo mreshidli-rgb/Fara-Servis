@@ -1,3 +1,4 @@
+HTML
 <!DOCTYPE html>
 <html lang="az">
 <head>
@@ -5,17 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fara Servis Arzuman | Peşəkar Optika Bərpası</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght500;700;900&family=Poppins:wght300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
             --bg-dark: #060913;
-            --panel-bg: rgba(13, 19, 33, 0.75);
+            --panel-bg: rgba(13, 19, 33, 0.85);
             --primary-orange: #ff5500;
             --cyber-cyan: #00ffff;
             --text-gray: #94a3b8;
-            
-            /* Neon Rəng Çeşidləri */
             --n-blue: #00d2ff;
             --n-orange: #ff5500;
             --n-green: #00ff66;
@@ -27,87 +26,293 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
 
         body {
-            background: linear-gradient(rgba(6, 9, 19, 0.82), rgba(6, 9, 19, 0.92)), 
+            background: linear-gradient(rgba(6, 9, 19, 0.85), rgba(6, 9, 19, 0.95)), 
                         url('https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=1920&auto=format&fit=crop') no-repeat center center fixed;
             background-size: cover;
             color: #f1f5f9;
             min-height: 100vh;
-            overflow-x: hidden;
-            padding-bottom: 100px;
+            padding-bottom: 120px;
         }
 
-        /* HEADER */
         header { text-align: center; padding: 40px 20px 20px; }
         header h1 {
-            font-family: 'Orbitron', sans-serif; font-size: 2.8rem; color: var(--primary-orange);
-            font-weight: 900; text-transform: uppercase; letter-spacing: 4px; text-shadow: 0 0 20px rgba(255, 85, 0, 0.6);
+            font-family: 'Orbitron', sans-serif; font-size: 2.5rem; color: var(--primary-orange);
+            font-weight: 900; text-transform: uppercase; letter-spacing: 3px; text-shadow: 0 0 20px rgba(255, 85, 0, 0.5);
         }
         .slogan {
-            font-family: 'Orbitron', sans-serif; font-size: 1.1rem; color: var(--cyber-cyan);
-            margin-top: 5px; font-weight: 700; letter-spacing: 2px; text-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+            font-family: 'Orbitron', sans-serif; font-size: 1rem; color: var(--cyber-cyan);
+            margin-top: 5px; font-weight: 700; letter-spacing: 2px;
         }
 
-        .container { max-width: 1300px; margin: 0 auto; padding: 10px 20px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-        /* AXTARIŞ VƏ BAŞLIQ BÖLMƏSİ */
+        /* AXTARIŞ */
         .search-section { text-align: center; margin: 30px 0; }
-        .search-section h2 { font-family: 'Orbitron', sans-serif; font-size: 2rem; color: #fff; margin-bottom: 15px; font-weight: 700; }
+        .search-section h2 { font-family: 'Orbitron', sans-serif; font-size: 1.8rem; color: #fff; margin-bottom: 15px; }
         .search-wrapper { position: relative; max-width: 500px; margin: 0 auto; }
         .search-wrapper input {
-            width: 100%; padding: 14px 20px 14px 45px; background: rgba(15, 23, 42, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 30px; color: #fff;
-            font-size: 1rem; backdrop-filter: blur(10px); transition: all 0.3s;
+            width: 100%; padding: 14px 20px 14px 45px; background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 30px; color: #fff; font-size: 1rem;
         }
         .search-wrapper input:focus { outline: none; border-color: var(--cyber-cyan); box-shadow: 0 0 15px rgba(0, 255, 255, 0.3); }
-        .search-wrapper i { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: var(--text-gray); font-size: 1.1rem; }
+        .search-wrapper i { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: var(--text-gray); }
 
-        /* AVTOMOBİL MARKALARI GRID */
+        /* MARKALAR GRID */
         .brand-grid { 
             display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); 
-            gap: 15px; margin-bottom: 50px; background: rgba(10, 15, 30, 0.4);
-            padding: 25px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); backdrop-filter: blur(5px);
+            gap: 15px; margin-bottom: 40px; background: rgba(10, 15, 30, 0.6);
+            padding: 20px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.05);
         }
         .brand-card {
-            background: rgba(20, 27, 45, 0.85); border-radius: 12px; padding: 15px 10px;
-            text-align: center; cursor: pointer; transition: all 0.25s ease; display: flex;
+            background: rgba(20, 27, 45, 0.9); border-radius: 12px; padding: 15px 10px;
+            text-align: center; cursor: pointer; transition: all 0.2s; display: flex;
             flex-direction: column; align-items: center; justify-content: center; height: 105px;
         }
-        .brand-card i.brand-icon { font-size: 2.2rem; margin-bottom: 8px; color: #e2e8f0; transition: transform 0.3s; }
-        .brand-card h3 { font-size: 0.85rem; font-weight: 500; color: #cbd5e1; letter-spacing: 0.5px; }
-        .brand-card:hover { transform: translateY(-5px) scale(1.03); background: rgba(26, 36, 59, 0.95); }
-        .brand-card:hover i.brand-icon { transform: scale(1.1); }
+        .brand-card i.brand-icon { font-size: 2rem; margin-bottom: 8px; }
+        .brand-card h3 { font-size: 0.85rem; font-weight: 500; color: #cbd5e1; }
+        .brand-card:hover { transform: translateY(-3px); background: rgba(30, 41, 69, 0.95); }
 
-        .br-blue { border: 2.5px solid var(--n-blue); } .br-blue:hover { box-shadow: 0 0 15px var(--n-blue); } .br-blue i { color: var(--n-blue) !important; }
-        .br-orange { border: 2.5px solid var(--n-orange); } .br-orange:hover { box-shadow: 0 0 15px var(--n-orange); } .br-orange i { color: var(--n-orange) !important; }
-        .br-green { border: 2.5px solid var(--n-green); } .br-green:hover { box-shadow: 0 0 15px var(--n-green); } .br-green i { color: var(--n-green) !important; }
-        .br-red { border: 2.5px solid var(--n-red); } .br-red:hover { box-shadow: 0 0 15px var(--n-red); } .br-red i { color: var(--n-red) !important; }
-        .br-yellow { border: 2.5px solid var(--n-yellow); } .br-yellow:hover { box-shadow: 0 0 15px var(--n-yellow); } .br-yellow i { color: var(--n-yellow) !important; }
-        .br-white { border: 2.5px solid var(--n-white); } .br-white:hover { box-shadow: 0 0 15px var(--n-white); } .br-white i { color: var(--n-white) !important; }
+        .br-blue { border: 2px solid var(--n-blue); color: var(--n-blue); }
+        .br-orange { border: 2px solid var(--n-orange); color: var(--n-orange); }
+        .br-green { border: 2px solid var(--n-green); color: var(--n-green); }
+        .br-red { border: 2px solid var(--n-red); color: var(--n-red); }
+        .br-yellow { border: 2px solid var(--n-yellow); color: var(--n-yellow); }
+        .br-white { border: 2px solid var(--n-white); color: var(--n-white); }
+        .brand-card h3 { color: #fff !important; }
 
-        /* AŞAĞI PANEL DÜZÜLÜŞÜ */
-        .bottom-widgets { display: grid; grid-template-columns: 1.3fr 1fr; gap: 30px; margin-top: 20px; }
-        @media (max-width: 900px) { .bottom-widgets { grid-template-columns: 1fr; } }
-        .widget-card { background: var(--panel-bg); border-radius: 16px; padding: 25px; border: 1px solid rgba(255, 255, 255, 0.08); backdrop-filter: blur(15px); box-shadow: 0 15px 35px rgba(0,0,0,0.5); }
-        .widget-title { font-family: 'Orbitron', sans-serif; font-size: 1.1rem; color: #fff; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
+        /* BOTTOM WIDGETS */
+        .bottom-widgets { display: grid; grid-template-columns: 1.2fr 1fr; gap: 25px; }
+        @media (max-width: 850px) { .bottom-widgets { grid-template-columns: 1fr; } }
+        
+        .widget-card { background: var(--panel-bg); border-radius: 16px; padding: 20px; border: 1px solid rgba(255, 255, 255, 0.1); }
+        .widget-title { font-family: 'Orbitron', sans-serif; font-size: 1rem; color: #fff; margin-bottom: 15px; text-transform: uppercase; }
 
-        /* İNTERAKTİV ƏVVƏL/SONRA SLAYDERİ */
-        .slider-wrapper { position: relative; width: 100%; height: 280px; overflow: hidden; border-radius: 12px; border: 2px solid rgba(255,255,255,0.1); }
+        /* SLIDER */
+        .slider-wrapper { position: relative; width: 100%; height: 250px; overflow: hidden; border-radius: 10px; }
         .slider-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
         .img-before { z-index: 1; }
         .img-after { z-index: 2; width: 50%; border-right: 3px solid var(--primary-orange); }
         .slider-input { position: absolute; left: 0; top: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; z-index: 3; }
-        .slider-label { position: absolute; bottom: 12px; background: rgba(0,0,0,0.75); padding: 4px 12px; border-radius: 6px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; z-index: 2; letter-spacing: 1px; color: #fff;}
-        .rating-box { display: flex; align-items: center; justify-content: space-between; margin-top: 20px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.05); }
-        .rating-box span { font-size: 0.95rem; color: #cbd5e1; }
-        .stars { color: #ffbb00; font-size: 1.2rem; display: flex; gap: 4px; }
+        .slider-label { position: absolute; bottom: 10px; background: rgba(0,0,0,0.8); padding: 3px 10px; border-radius: 4px; font-size: 0.7rem; font-weight: bold; z-index: 2; color: #fff;}
+        
+        .rating-box { display: flex; align-items: center; justify-content: space-between; margin-top: 15px; }
+        .stars { color: #ffbb00; display: flex; gap: 3px; }
 
-        /* PREMIUM ŞƏKİL YÜKLƏMƏ BÖLMƏSİ */
+        /* UPLOAD */
         .upload-container { display: flex; flex-direction: column; align-items: center; text-align: center; }
-        .upload-title-orange { font-family: 'Orbitron', sans-serif; color: #ffa500; font-size: 1.1rem; font-weight: 700; margin-bottom: 5px; letter-spacing: 1px; }
-        .upload-subtitle { font-size: 0.9rem; color: #fff; margin-bottom: 25px; text-transform: uppercase; }
-        .circle-dropzone { width: 130px; height: 130px; border-radius: 50%; border: 2px dashed #ffa500; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; position: relative; background: rgba(0, 0, 0, 0.3); margin-bottom: 20px; box-shadow: inset 0 0 15px rgba(255, 165, 0, 0.1); transition: all 0.3s; overflow: hidden; }
-        .circle-dropzone:hover { box-shadow: 0 0 15px rgba(255, 165, 0, 0.3); border-color: #fff; }
-        .circle-dropzone i { font-size: 2rem; color: rgba(255,255,255,0.4); margin-bottom: 5px; }
-        .circle-dropzone p { font-size: 0.75rem; color: var(--text-gray); font-weight: 500; text-transform: uppercase; }
-        .circle-dropzone img { position: absolute; width: 100%; height: 100%; object-fit: cover; top: 0; left: 0; display: none; }
-        .btn-cyber-upload { background: transparent; border: 2px solid var(--cyber-cyan); color: #fff; padding: 10px 45px; border-radius: 25px; font-family: 'Orbitron', sans-serif; font-weight: 700; font-size
+        .circle-dropzone { width: 110px; height: 110px; border-radius: 50%; border: 2px dashed #ffa500; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; position: relative; background: rgba(0, 0, 0, 0.4); margin-bottom: 15px; overflow: hidden; }
+        .circle-dropzone i { font-size: 1.8rem; color: rgba(255,255,255,0.5); margin-bottom: 3px; }
+        .circle-dropzone p { font-size: 0.7rem; color: var(--text-gray); }
+        .circle-dropzone img { position: absolute; width: 100%; height: 100%; object-fit: cover; display: none; }
+        .btn-cyber-upload { background: transparent; border: 2px solid var(--cyber-cyan); color: #fff; padding: 8px 35px; border-radius: 20px; font-family: 'Orbitron', sans-serif; font-weight: 700; cursor: pointer; transition: 0.2s; }
+        .btn-cyber-upload:hover { background: var(--cyber-cyan); color: #000; }
+
+        /* WHATSAPP FIXED BAR */
+        .bottom-contact-bar { position: fixed; bottom: 20px; right: 20px; background: rgba(10, 30, 15, 0.9); border: 1px solid #25d366; padding: 8px 18px; border-radius: 25px; display: flex; align-items: center; gap: 10px; text-decoration: none; z-index: 999; }
+        .bottom-contact-bar span { color: #fff; font-weight: 600; font-family: 'Orbitron', sans-serif; font-size: 0.9rem; }
+        .bottom-contact-bar i { color: #25d366; font-size: 1.4rem; }
+
+        /* POPUP MODAL (YENİ SIFIRDAN YIĞILMA) */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.9); display: none; align-items: center; justify-content: center; z-index: 9999; padding: 15px;
+        }
+        .modal-box {
+            background: #0b111e; border: 2px solid var(--primary-orange); border-radius: 12px;
+            width: 100%; max-width: 650px; padding: 20px; box-shadow: 0 0 25px rgba(255, 85, 0, 0.4);
+        }
+        .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+        .modal-title { font-family: 'Orbitron', sans-serif; font-size: 1.2rem; color: #fff; text-transform: uppercase; }
+        .close-btn { background: none; border: none; color: #ff3333; font-size: 2rem; cursor: pointer; }
+        
+        .modal-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 20px; }
+        .tab-btn {
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff;
+            padding: 8px 20px; border-radius: 6px; font-family: 'Orbitron', sans-serif; cursor: pointer; font-size: 0.85rem; transition: 0.2s;
+        }
+        .active-tab { border-color: var(--primary-orange); color: var(--primary-orange); background: rgba(255, 85, 0, 0.1); }
+
+        .modal-gallery { display: grid; grid-template-columns: 1fr; gap: 15px; }
+        .ba-card { background: rgba(255,255,255,0.03); border-radius: 8px; padding: 10px; border: 1px solid rgba(255,255,255,0.05); }
+        .ba-images { display: flex; gap: 10px; }
+        .ba-img-box { flex: 1; text-align: center; }
+        .ba-img-box img { width: 100%; height: 160px; object-fit: cover; border-radius: 6px; margin-bottom: 5px; border: 1px solid rgba(255,255,255,0.1); }
+        .ba-label { font-size: 0.8rem; color: #cbd5e1; font-weight: 600; text-transform: uppercase; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Fara Servis Arzuman</h1>
+        <div class="slogan">Göz oxşayan parıltı, güvənli yolçuluq!</div>
+    </header>
+
+    <div class="container">
+        
+        <div class="search-section">
+            <h2>Maşınınızı Seçin</h2>
+            <div class="search-wrapper">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="searchBar" onkeyup="filterCars()" placeholder="Maşınınızı axtarın...">
+            </div>
+        </div>
+
+        <div class="brand-grid" id="brandGrid">
+            <div class="brand-card br-blue" onclick="openModal('Mercedes')"><i class="fa-solid fa-car-side brand-icon"></i><h3>Mercedes</h3></div>
+            <div class="brand-card br-white" onclick="openModal('BMW')"><i class="fa-solid fa-car brand-icon"></i><h3>BMW</h3></div>
+            <div class="brand-card br-red" onclick="openModal('Audi')"><i class="fa-solid fa-circle-nodes brand-icon"></i><h3>Audi</h3></div>
+            <div class="brand-card br-orange" onclick="openModal('Opel')"><i class="fa-solid fa-bolt brand-icon"></i><h3>Opel</h3></div>
+            <div class="brand-card br-yellow" onclick="openModal('Toyota')"><i class="fa-solid fa-bahai brand-icon"></i><h3>Toyota</h3></div>
+            <div class="brand-card br-red" onclick="openModal('Hyundai')"><i class="fa-solid fa-h brand-icon"></i><h3>Hyundai</h3></div>
+            <div class="brand-card br-blue" onclick="openModal('Kia')"><i class="fa-solid fa-k brand-icon"></i><h3>Kia</h3></div>
+            <div class="brand-card br-orange" onclick="openModal('Chevrolet')"><i class="fa-solid fa-cross brand-icon"></i><h3>Chevrolet</h3></div>
+            <div class="brand-card br-blue" onclick="openModal('Ford')"><i class="fa-solid fa-f brand-icon"></i><h3>Ford</h3></div>
+            <div class="brand-card br-white" onclick="openModal('Nissan')"><i class="fa-solid fa-circle-dot brand-icon"></i><h3>Nissan</h3></div>
+            <div class="brand-card br-blue" onclick="openModal('Volkswagen')"><i class="fa-solid fa-v brand-icon"></i><h3>Volkswagen</h3></div>
+            <div class="brand-card br-orange" onclick="openModal('Lada')"><i class="fa-solid fa-shield-halved brand-icon"></i><h3>Lada</h3></div>
+            <div class="brand-card br-red" onclick="openModal('Honda')"><i class="fa-solid fa-square-h brand-icon"></i><h3>Honda</h3></div>
+            <div class="brand-card br-yellow" onclick="openModal('Porsche')"><i class="fa-solid fa-crown brand-icon"></i><h3>Porsche</h3></div>
+            <div class="brand-card br-green" onclick="openModal('Lexus')"><i class="fa-solid fa-l brand-icon"></i><h3>Lexus</h3></div>
+        </div>
+
+        <div class="bottom-widgets">
+            <div class="widget-card">
+                <div class="widget-title">Əvvəl/Sonra: Slayder</div>
+                <div class="slider-wrapper">
+                    <span class="slider-label" style="left: 10px;">Əvvəl</span>
+                    <img class="slider-img img-before" src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=600" alt="Əvvəl">
+                    <span class="slider-label" style="right: 10px; background: var(--primary-orange);">Sonra</span>
+                    <img id="afterImg" class="slider-img img-after" src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=600" alt="Sonra">
+                    <input type="range" class="slider-input" min="0" max="100" value="50" oninput="moveSlider(this.value)">
+                </div>
+                <div class="rating-box">
+                    <span>Arzuman Usta Qiymətləndirmə</span>
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                </div>
+            </div>
+
+            <div class="widget-card" style="display: flex; flex-direction: column; justify-content: center;">
+                <div class="upload-container">
+                    <div style="font-family:'Orbitron'; color:#ffa500; margin-bottom:10px;">ŞƏKLİNİZİ YÜKLƏYİN</div>
+                    <div class="circle-dropzone" onclick="triggerFileInput()">
+                        <i class="fa-solid fa-camera"></i>
+                        <p id="uploadText">ŞƏKİL SEÇ</p>
+                        <input type="file" id="userPhotoInput" accept="image/*" style="display: none;" onchange="previewUserPhoto(this)">
+                        <img id="userPhotoPreview" src="">
+                    </div>
+                    <button class="btn-cyber-upload" onclick="sendPhotoToWhatsApp()">USTAYA GÖNDƏR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="galleryModal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle">MARKA</h3>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-tabs">
+                <button class="tab-btn active-tab" id="tabFara" onclick="loadGallery('fara')">FARA BƏRPASI</button>
+                <button class="tab-btn" id="tabStop" onclick="loadGallery('stop')">STOP BƏRPASI</button>
+            </div>
+            <div class="modal-gallery" id="modalGalleryGrid">
+                </div>
+        </div>
+    </div>
+
+    <a href="https://wa.me/994556057891" class="bottom-contact-bar" target="_blank">
+        <span>055 605 78 91</span>
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script>
+        function filterCars() {
+            let input = document.getElementById('searchBar').value.toLowerCase();
+            let cards = document.getElementsByClassName('brand-card');
+            for (let i = 0; i < cards.length; i++) {
+                let name = cards[i].querySelector('h3').innerText.toLowerCase();
+                cards[i].style.display = name.includes(input) ? "flex" : "none";
+            }
+        }
+
+        function moveSlider(value) {
+            document.getElementById('afterImg').style.width = value + '%';
+        }
+
+        function triggerFileInput() { document.getElementById('userPhotoInput').click(); }
+
+        function previewUserPhoto(input) {
+            const file = input.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const preview = document.getElementById('userPhotoPreview');
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                    document.getElementById('uploadText').style.display = 'none';
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function sendPhotoToWhatsApp() {
+            if(document.getElementById('userPhotoInput').files.length === 0) {
+                alert("Zəhmət olmasa şəkil seçin!");
+            } else {
+                window.open("https://wa.me/994556057891", '_blank');
+            }
+        }
+
+        /* MODAL CODES */
+        let currentBrand = '';
+        function openModal(brand) {
+            currentBrand = brand;
+            document.getElementById('modalTitle').innerText = brand + " - İşlərimiz";
+            document.getElementById('galleryModal').style.display = 'flex';
+            loadGallery('fara');
+        }
+
+        function closeModal() {
+            document.getElementById('galleryModal').style.display = 'none';
+        }
+
+        function loadGallery(type) {
+            document.getElementById('tabFara').classList.remove('active-tab');
+            document.getElementById('tabStop').classList.remove('active-tab');
+            
+            if (type === 'fara') {
+                document.getElementById('tabFara').classList.add('active-tab');
+            } else {
+                document.getElementById('tabStop').classList.add('active-tab');
+            }
+
+            const grid = document.getElementById('modalGalleryGrid');
+            
+            // Fərqli bölmələr üçün fərqli nümunə şəkillər çıxsın deyə linkləri ayırdım
+            let beforeSrc = type === 'fara' 
+                ? 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=500' 
+                : 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=500';
+            
+            let afterSrc = type === 'fara' 
+                ? 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=500' 
+                : 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=500';
+
+            grid.innerHTML = `
+                <div class="ba-card">
+                    <div class="ba-images">
+                        <div class="ba-img-box">
+                            <img src="${beforeSrc}" alt="Əvvəl">
+                            <div class="ba-label">Əvvəl</div>
+                        </div>
+                        <div class="ba-img-box">
+                            <img src="${afterSrc}" alt="Sonra">
+                            <div class="ba-label" style="color: var(--primary-orange);">Sonra</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
