@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fara Servis Arzuman | Sumqayıt</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #121214;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(180deg, #1f1f23 0%, #121214 100%);
+            border-bottom: 2px solid #ff4d05;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: #ff4d05;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            color: #a0a0a5;
+            margin-top: 10px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Səhifə Keçid Animasiyaları */
+        .page {
+            display: none;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .page.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Addım 1: Brend Grid Sistemi */
+        .brand-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .brand-card {
+            background-color: #1f1f23;
+            border: 1px solid #2d2d35;
+            border-radius: 12px;
+            padding: 30px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .brand-card:hover {
+            transform: translateY(-10px);
+            border-color: #ff4d05;
+            box-shadow: 0 10px 20px rgba(255, 77, 5, 0.2);
+        }
+
+        .brand-card i {
+            font-size: 3rem;
+            color: #a0a0a5;
+            transition: color 0.3s;
+        }
+
+        .brand-card:hover i {
+            color: #ff4d05;
+        }
+
+        .brand-card h3 {
+            margin-top: 15px;
+            font-size: 1.2rem;
+        }
+
+        /* Addım 2: Fara / Stop Seçimi */
+        .choice-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .choice-card {
+            background: #1f1f23;
+            width: 300px;
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.4s ease;
+        }
+
+        .choice-card:hover {
+            border-color: #0596ff;
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(5, 150, 255, 0.2);
+        }
+
+        .choice-card i {
+            font-size: 4rem;
+            color: #0596ff;
+            margin-bottom: 20px;
+        }
+
+        /* Addım 3: Əvvəl/Sonra Slider */
+        .result-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .slider-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .slider-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .img-before {
+            background-image: url('https://images.unsplash.com/photo-1562618456-131802c27dfa?q=80&w=600&auto=format&fit=crop'); /* Bura köhnə fara şəkli linki gələcək */
+        }
+
+        .img-after {
+            background-image: url('https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=600&auto=format&fit=crop'); /* Bura təzə fara şəkli linki gələcək */
+            width: 50%;
+            border-right: 3px solid #fff;
+        }
+
+        .slider-input {
+            position: absolute;
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            opacity: 0;
+            cursor: ew-resize;
+            z-index: 10;
+        }
+
+        /* Qiymət Kartları */
+        .price-box {
+            background: #1f1f23;
+            padding: 20px 40px;
+            border-radius: 8px;
+            border-left: 5px solid #ff4d05;
+            font-size: 1.3rem;
+            margin-top: 20px;
+        }
+
+        /* Geri Düyməsi */
+        .btn-back {
+            background: #323238;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: background 0.3s;
+        }
+
+        .btn-back:hover {
+            background: #ff4d05;
+        }
+
+        /* Sabit Pulsasiya Edən WhatsApp Düyməsi */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 35px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            z-index: 100;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 id="main-title">Fara Servis Arzuman</h1>
+        <p>Sumqayıt şəhəri | Peşəkar Fara və Stop Bərpası</p>
+    </header>
+
+    <div class="container">
+        
+        <div id="page-brands" class="page active">
+            <h2 style="text-align: center; margin-bottom: 20px;">Avtomobilinizin Markasını Seçin</h2>
+            <div class="brand-grid">
+                <div class="brand-card" onclick="selectBrand('Mercedes-Benz')">
+                    <i class="fa-solid fa-car"></i>
+                    <h3>Mercedes</h3>
+                </div>
+                <div class="brand-card" onclick="selectBrand('BMW')">
+                    <i class="fa-solid fa-car-side"></i>
+                    <h3>BMW</h3>
+                </div>
+                <div class="brand-card" onclick="selectBrand('Opel')">
+                    <i class="fa-solid fa-car-rear"></i>
+                    <h3>Opel</h3>
+                </div>
+                <div class="brand-card" onclick="selectBrand('Toyota')">
+                    <i class="fa-solid fa-car"></i>
+                    <h3>Toyota</h3>
+                </div>
+                <div class="brand-card" onclick="selectBrand('Hyundai')">
+                    <i class="fa-solid fa-car-side"></i>
+                    <h3>Hyundai</h3>
+                </div>
+                <div class="brand-card" onclick="selectBrand('Kia')">
+                    <i class="fa-solid fa-car-rear"></i>
+                    <h3>Kia</h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="page-services" class="page">
+            <button class="btn-back" onclick="goBack('page-brands')"><i class="fa-solid fa-arrow-left"></i> Geri</button>
+            <h2 id="brand-title" style="text-align: center;"></h2>
+            <div class="choice-container">
+                <div class="choice-card" onclick="selectService('Fara')">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <h3>Fara Xidmətləri</h3>
+                    <p style="color: #a0a0a5; margin-top: 10px;">Polirovka, Daxili Təmizlik, Bi-Led yığılması</p>
+                </div>
+                <div class="choice-card" onclick="selectService('Stop')">
+                    <i class="fa-solid fa-car-rear" style="color: #ff3333;"></i>
+                    <h3>Stop Xidmətləri</h3>
+                    <p style="color: #a0a0a5; margin-top: 10px;">Çatların təmiri, Qaraltma, Led bərpası</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="page-result" class="page">
+            <button class="btn-back" onclick="goBack('page-services')"><i class="fa-solid fa-arrow-left"></i> Geri</button>
+            <h2 id="result-title" style="text-align: center; margin-bottom: 20px;"></h2>
+            
+            <div class="result-container">
+                <div class="slider-wrapper">
+                    <div class="slider-img img-before"></div>
+                    <div class="slider-img img-after" id="after-img"></div>
+                    <input type="range" min="0" max="100" value="50" class="slider-input" id="slider-range">
+                </div>
+                
+                <p style="color: #a0a0a5;"><i class="fa-solid fa-arrows-left-right"></i> Şəkli sağa-sola çəkərək fərqi görün</p>
+
+                <div class="price-box">
+                    Qiymət: <span id="price-text" style="color: #ff4d05; font-weight: bold;">30 AZN-dən</span> başlayan qiymətlərlə
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <a href="https://wa.me/994556057891?text=Salam%20Arzuman%20usta.%20Saytdan%20yazıram,%20fara%20təmiri%20barədə%20məlumat%20almaq%20istərdim." class="whatsapp-float" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script>
+        let selectedBrand = '';
+        let selectedService = '';
+
+        function switchPage(fromId, toId) {
+            const fromPage = document.getElementById(fromId);
+            const toPage = document.getElementById(toId);
+
+            fromPage.classList.remove('active');
+            setTimeout(() => {
+                fromPage.style.display = 'none';
+                toPage.style.display = 'block';
+                setTimeout(() => {
+                    toPage.classList.add('active');
+                }, 50);
+            }, 400); // Animasiya müddəti
+        }
+
+        function selectBrand(brand) {
+            selectedBrand = brand;
+            document.getElementById('brand-title').innerText = brand + " - Xidmət Növü Seçin";
+            switchPage('page-brands', 'page-services');
+        }
+
+        function selectService(service) {
+            selectedService = service;
+            document.getElementById('result-title').innerText = selectedBrand + " " + service + " Bərpasının Nəticəsi";
+            
+            // Markaya və xidmətə görə qiyməti dinamik dəyişmək üçün şərt qoya bilərsiniz
+            if(selectedBrand === 'BMW' || selectedBrand === 'Mercedes-Benz') {
+                document.getElementById('price-text').innerText = "50 AZN-dən";
+            } else {
+                document.getElementById('price-text').innerText = "30 AZN-dən";
+            }
+
+            switchPage('page-services', 'page-result');
+        }
+
+        function goBack(toId) {
+            const currentActive = document.querySelector('.page.active').id;
+            switchPage(currentActive, toId);
+        }
+
+        // Before/After Slider Funksiyası
+        const sliderRange = document.getElementById('slider-range');
+        const afterImg = document.getElementById('after-img');
+
+        sliderRange.addEventListener('input', (e) => {
+            const value = e.target.value;
+            afterImg.style.width = value + '%';
+        });
+    </script>
+</body>
+</html>
